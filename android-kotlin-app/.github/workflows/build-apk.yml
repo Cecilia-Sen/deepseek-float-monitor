@@ -1,0 +1,38 @@
+名字: 构建DeepSeek浮动监视器
+
+在:
+推:
+分支: [ "main", "master" ]
+  workflow_dispatch:
+
+工作:
+  build-apk:
+    runs-on: ubuntu-latest
+步骤:
+      - 名字: Checkout Source
+用途: actions/checkout@v4
+
+      - 名字: 自动解压缩移动上传压缩文件（如果存在）
+跑: |
+if[-f"deepseek_android_floating_app.zip"]；然后
+unzip -o deepseek_android_floating_app.zip
+菲
+
+      - 名字: 设置JDK 17
+用途: actions/setup-java@v4
+与:
+          java-version: '17'
+分布: 'temurin'
+
+      - 名字: 安装梯度
+用途: gradle/actions/setup-gradle@v3
+
+      - 名字: 构建调试APK
+        working-directory: ./android-kotlin-app
+跑: 装配
+
+      - 名字: 上传编译APK
+用途: actions/upload-artifact@v4
+与:
+          name: DeepSeek-FloatMonitor-Android-APK
+          path: android-kotlin-app/app/build/outputs/apk/debug/*.apk
