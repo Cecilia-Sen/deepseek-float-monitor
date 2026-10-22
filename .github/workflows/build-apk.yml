@@ -75,7 +75,7 @@ jobs:
 
               buildTypes {
                   release {
-                      isMinifyEnabled = false
+                      minifyEnabled false
                   }
               }
               compileOptions {
