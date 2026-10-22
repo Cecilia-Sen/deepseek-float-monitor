@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark"><head><script data-bard-client-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjExNjRiNzdiNDMzZDdhMDAyMWI4NjE4YjhjYTU3ZTMyZGI5MWUxMTMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwMTg4MTAyMDcwNzczODczMjIyMyIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzE2MDMxZDBkOTUwMzA0NWZfMTY2ZTk1ZGVfZGVlcHNlZWtfZmxvYXRpbmdfbW9uaXRvci5odG1sLTMzIn0sImV4cCI6MTc5MjY2MDY3NCwiaWF0IjoxNzkyNjU3MDc0LCJhbGciOiJSUzI1NiJ9.cEcj2vXkQ3f8q-1xH5Lr3Q5JPnm-0OgZ5Rx-epUxb9VhG6vJpYBhae1lPrE657eM3pDtH9tDUrO7KHLnwk_QLKLW9h6H8_reysQeIMbVwoqas0SsOmM-tphXT46ToPvUDm4RkOYVP8bj0RSq77VjwEpMPxls4hPgIS46bDJsklqCGxZnSiyrSxoJ7rgxAq7kx30DDGDSwdhUt52N71kcmOBw4Uu0ZEt8Xc80XtgHizgDjkEq578dPnWWlV9ZtaYxm0y5M6rFOtkktkyBOPJz9BX0IUFs7h3dlj4a29E2WxbekCdhSvgLvvjh-5g3-It03GcYyrhL5ueh4dKeeIRzAg","c_16031d0d9503045f_166e95de_deepseek_floating_monitor.html-33")</script><script data-bard-client-injected="true">
+  document.addEventListener('input', (event) => {
+    if (event.target && (event.target.isContentEditable || event.target.hasAttribute('contenteditable'))) {
+      const clonedDoc = document.cloneNode(true);
+      const injectedScripts = clonedDoc.querySelectorAll('[data-bard-client-injected="true"]');
+      injectedScripts.forEach(el => el.remove());
+      window.parent.postMessage({
+        type: 'inlineEdit',
+        html: '<!DOCTYPE html>\n' + clonedDoc.documentElement.outerHTML
+      }, '*');
+    }
+  });
+</script><script data-bard-client-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-client-injected="true">(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var c=n;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&b!=null&&h(c,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(d){return a.next(d)}function c(d){return a.throw(d)}return new Promise(function(d,e){function f(g){g.done?d(g.value):Promise.resolve(g.value).then(b,c).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var c=[],d;for(d in b)Object.prototype.hasOwnProperty.call(b,d)&&c.push(b[d]);return c}});p("Array.prototype.includes",function(a){return a?a:function(b,c){var d=this;d instanceof String&&(d=String(d));var e=d.length;c=c||0;for(c<0&&(c=Math.max(c+e,0));c<e;c++){var f=d[c];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){var c=a.style;b.backgroundColor&&(c.backgroundColor=b.backgroundColor);b.width&&(c.width=`${b.width}px`);b.height&&(c.height=`${b.height}px`);var d=b.style;d!=null&&Object.keys(d).forEach(e=>{c[e]=d[e]})};var v=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let c=0,d=a.length;c<d;c++)b.push(a[c]);return b}let x=null;function y(a={}){return x?x:a.u?x=a.u:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var c;if(!(c=b.width)){c=z(a,"border-left-width");var d=z(a,"border-right-width");c=a.clientWidth+c+d}(b=b.height)||(b=z(a,"border-top-width"),d=z(a,"border-bottom-width"),b=a.clientHeight+b+d);return{width:c,height:b}}function B(a){return new Promise((b,c)=>{var d=new Image;d.onload=()=>{d.decode().then(()=>{requestAnimationFrame(()=>b(d))})};d.onerror=c;d.crossOrigin="anonymous";d.decoding="async";d.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,c){return t(function*(){var d=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");d.setAttribute("width",`${b}`);d.setAttribute("height",`${c}`);d.setAttribute("viewBox",`0 0 ${b} ${c}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");d.appendChild(e);e.appendChild(a);return C(d)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(c=>{var d=a.getPropertyValue(c),e=a.getPropertyPriority(c);return`${c}: ${d}${e?" !important":""};`}).join(" ")}
+function G(a,b,c,d){a=window.getComputedStyle(a,c);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;c=`.${f}:${c}`;a.cssText?(d=a.getPropertyValue("content"),d=`${a.cssText} content: '${d.replace(/'|"/g,"")}';`):d=F(a,d);g.call(e,document.createTextNode(`${c}{${d}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,c){return t(function*(){var d=yield fetch(a,b);if(d.status===404)throw Error(`Resource "${d.url}" not found`);var e=yield d.blob();return new Promise((f,g)=>{var k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(c({v:d,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function aa(a,b,c){var d=a.replace(/\?.*/,"");c&&(d=a);/ttf|otf|eot|woff2?/i.test(d)&&(d=d.replace(/.*\//,""));return b?`[${b}]${d}`:d}
+function K(a,b,c){return t(function*(){var d=aa(a,b,c.F);if(J[d]!=null)return J[d];c.B&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield I(a,c.l,({v:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=c.o||""}return J[d]=e})};const L={R:"application/font-woff",S:"application/font-woff",O:"application/font-truetype",C:"application/vnd.ms-fontobject",J:"image/png",H:"image/jpeg",G:"image/jpeg",D:"image/gif",N:"image/tiff",M:"image/svg+xml",P:"image/webp"};function M(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function ba(a){return t(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function ca(a,b){return t(function*(){if(a.currentSrc){var c=document.createElement("canvas");let d=c.getContext("2d");c.width=a.clientWidth;c.height=a.clientHeight;d==null||d.drawImage(a,0,0,c.width,c.height);c=c.toDataURL();return B(c)}c=a.poster;c=yield K(c,L[M(c).toLowerCase()]||"",b);return B(c)})}
+function da(a,b){return t(function*(){try{let c;if(a==null?0:(c=a.contentDocument)==null?0:c.body)return yield N(a.contentDocument.body,b,!0)}catch(c){}return a.cloneNode(!1)})}function ea(a,b){return t(function*(){return E(a,HTMLCanvasElement)?ba(a):E(a,HTMLVideoElement)?ca(a,b):E(a,HTMLIFrameElement)?da(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function fa(a,b,c){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var d=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)d=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))d=w(a.contentDocument.body.childNodes);else{let f;d=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(d.length===0||E(a,HTMLVideoElement))return b;yield d.reduce((e,f)=>e.then(()=>N(f,c)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ha(a,b,c){var d=b.style;if(d){var e=window.getComputedStyle(a);e.cssText?(d.cssText=e.cssText,d.transformOrigin=e.transformOrigin):y(c).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);d.setProperty(f,g,e.getPropertyPriority(f))})}}
+function ia(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(c=>a.value===c.getAttribute("value")))&&b.setAttribute("selected","")}
+function ja(a,b){return t(function*(){var c=a.querySelectorAll?a.querySelectorAll("use"):[];if(c.length===0)return a;var d={};for(var e=0;e<c.length;e++){var f=c[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||d[f]||(d[f]=yield N(g,b,!0))}}c=Object.values(d);if(c.length){d=document.createElementNS("http://www.w3.org/1999/xhtml","svg");d.setAttribute("xmlns","http://www.w3.org/1999/xhtml");d.style.position="absolute";d.style.width="0";d.style.height="0";
+d.style.overflow="hidden";d.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");d.appendChild(e);for(f=0;f<c.length;f++)e.appendChild(c[f]);a.appendChild(d)}return a})}
+function N(a,b,c){return t(function*(){return c||!b.filter||b.filter(a)?Promise.resolve(a).then(d=>ea(d,b)).then(d=>fa(a,d,b)).then(d=>{E(d,Element)&&(ha(a,d,b),G(a,d,":before",b),G(a,d,":after",b),E(a,HTMLTextAreaElement)&&(d.textContent=a.value),E(a,HTMLInputElement)&&d.setAttribute("value",a.value),ia(a,d));return d}).then(d=>ja(d,b)):null})};const O=/url\((['"]?)([^'"]+?)\1\)/g,ka=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,la=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ma(a){var b=[];a.replace(O,(c,d,e)=>{b.push(e);return c});return b.filter(c=>!H(c))}
+function na(a,b,c,d){return t(function*(){try{let e=c?(new URL(b,c||void 0)).toString():b,f;f=yield K(e,L[M(b).toLowerCase()]||"",d);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function oa(a,{K:b}){return b?a.replace(la,c=>{for(;;){let [d,,e]=ka.exec(c)||[];if(!e)return"";if(e===b)return`src: ${d};`}}):a}
+function P(a,b,c){return t(function*(){if(a.search(O)===-1)return a;var d=oa(a,c);return ma(d).reduce((e,f)=>e.then(g=>na(g,f,b,c)),Promise.resolve(d))})};function Q(a,b,c){return t(function*(){var d,e=(d=b.style)==null?void 0:d.getPropertyValue(a);return e?(d=yield P(e,null,c),b.style.setProperty(a,d,b.style.getPropertyPriority(a)),!0):!1})}function pa(a,b){return t(function*(){(yield Q("background",a,b))||(yield Q("background-image",a,b));(yield Q("mask",a,b))||(yield Q("-webkit-mask",a,b))||(yield Q("mask-image",a,b))||(yield Q("-webkit-mask-image",a,b))})}
+function qa(a,b){return t(function*(){var c=E(a,HTMLImageElement);if(c&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var d=c?a.src:a.href.baseVal,e=yield K(d,L[M(d).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.h?(...k)=>{try{f(b.h(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");c?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function ra(a,b){return t(function*(){var c=w(a.childNodes).map(d=>R(d,b));yield Promise.all(c).then(()=>a)})}function R(a,b){return t(function*(){E(a,Element)&&(yield pa(a,b),yield qa(a,b),yield ra(a,b))})};const S={};function T(a){return t(function*(){var b=S[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return S[a]=b})}function U(a,b){return t(function*(){var c=a.cssText,d=/url\(["']?([^"')]+)["']?\)/g,e=(c.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){var g=f.replace(d,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.l,({result:k})=>{c=c.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>c)})}
+function V(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var c=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var d=c.exec(a);if(d===null)break;b.push(d[0])}a=a.replace(c,"");c=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(d=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=c.exec(a);if(e===null)if(e=d.exec(a),e===null)break;else c.lastIndex=d.lastIndex;else d.lastIndex=
+c.lastIndex;b.push(e[0])}return b}
+function sa(a,b){return t(function*(){var c=[],d=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=T(f.href).then(m=>U(m,b)).then(m=>V(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Fa){}})).catch(()=>{});d.push(f)}})}catch(f){let g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&d.push(T(e.href).then(k=>U(k,b)).then(k=>V(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(d).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{c.push(f)})}catch(f){}});return c})})}function ta(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(O)!==-1)}function ua(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var c=yield sa(w(a.ownerDocument.styleSheets),b);return ta(c)})}
+function va(a){function b(d){(d.style.fontFamily||getComputedStyle(d).fontFamily).split(",").forEach(e=>{c.add(e.trim().replace(/["']/g,""))});Array.from(d.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var c=new Set;b(a);return c}function wa(a,b){return t(function*(){var c=yield ua(a,b),d=va(a);return(yield Promise.all(c.filter(e=>d.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>P(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function xa(a,b){return t(function*(){var c=b.m!=null?b.m:b.A?null:yield wa(a,b);if(c){let d=document.createElement("style");d.appendChild(document.createTextNode(c));a.firstChild?a.insertBefore(d,a.firstChild):a.appendChild(d)}})};function ya(a,b={}){return t(function*(){var {width:c,height:d}=A(a,b),e=yield N(a,b,!0);yield xa(e,b);yield R(e,b);u(e,b);return yield D(e,c,d)})}
+function za(a,b={}){return t(function*(){var {width:c,height:d}=A(a,b),e=yield ya(a,b);e=yield B(e);var f=document.createElement("canvas"),g=f.getContext("2d"),k=b.I||window.devicePixelRatio||1,m=b.j||c,q=b.i||d;f.width=m*k;f.height=q*k;!b.L&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
+f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function Aa(a,b={}){return t(function*(){return(yield za(a,b)).toDataURL()})};const Ba=["gemini.google.com","corp.google.com","proxy.googlers.com"];function W(){return document.body.querySelectorAll('[class*="animate"]').length>0}function X(a,b){var c=document.createElement("canvas");c.width=a;c.height=b;return c.toDataURL("image/png")}const Y=X(1,1);
+function Z(a){return t(function*(){try{return yield Aa(a,{j:a.offsetWidth,i:a.offsetHeight,A:!0,filter:b=>{if(b.tagName==="IMG"){let c=b.getAttribute("src");if(!c||c.trim()===""||b.style.display==="none")return!1}return!0},o:Y,h:()=>Y})}catch(b){return X(a.offsetWidth,a.offsetHeight)}})}
+function Ca(){return t(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,c=document.body.cloneNode(!0);c.querySelectorAll('[class*="animate"]').forEach(d=>{d.classList.remove(...Array.from(d.classList).filter(e=>e.startsWith("animate")))});c.style.width=`${a}px`;c.style.height=`${b}px`;return c})}
+function Da(a){return t(function*(){var b=document.body;if(W()){var c=yield Ca();b=c;document.body.appendChild(c)}c=yield Z(b);W()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:c,topOffset:document.documentElement.scrollTop},a.origin)})}function Ea(a){return t(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(Ba.some(c=>a.origin.includes(c))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Da(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ea(a)))}}));
+})();</script><script data-bard-client-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-client-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-client-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.j=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.h=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.i="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-client-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-client-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-client-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>DeepSeek 余额与峰谷监控悬浮窗 (Android 专版)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    body {
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, #090d16 75%);
+      color: #f8fafc;
+      overflow-x: hidden;
+      min-height: 100vh;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #floatingWidget {
+      position: fixed;
+      z-index: 9999;
+      touch-action: none;
+      transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease, box-shadow 0.25s ease;
+    }
+    #floatingWidget.dragging {
+      transition: none !important;
+      transform: scale(1.03);
+    }
+    /* When pinned: click-through enabled across the entire floating widget except the unlock button */
+    #floatingWidget.pinned-passthrough,
+    #floatingWidget.pinned-passthrough * {
+      pointer-events: none !important;
+    }
+    #floatingWidget.pinned-passthrough .unlock-only-interactive,
+    #floatingWidget.pinned-passthrough .unlock-only-interactive * {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.90);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+    .pulse-ring-green {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+      animation: pulseGreen 2s infinite;
+    }
+    .pulse-ring-red {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.75);
+      animation: pulseRed 1.4s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    @keyframes pulseRed {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.75); }
+      70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    /* Unified button & typography system */
+    .btn-base {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 600;
+      border-radius: 0.625rem;
+      height: 2.25rem;
+      padding-left: 0.875rem;
+      padding-right: 0.875rem;
+      transition: all 0.15s ease;
+    }
+    .btn-base:active {
+      transform: scale(0.96);
+    }
+    .btn-sm-unified {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      height: 2rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      transition: all 0.15s ease;
+    }
+    .btn-sm-unified:active {
+      transform: scale(0.96);
+    }
+    .float-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 1.75rem;
+      min-width: 1.75rem;
+      padding-left: 0.375rem;
+      padding-right: 0.375rem;
+      border-radius: 0.5rem;
+      font-size: 0.6875rem;
+      line-height: 1;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .float-icon-btn:active {
+      transform: scale(0.92);
+    }
+    .control-input-unified {
+      height: 2.25rem;
+      border-radius: 0.625rem;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.4);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.5);
+      border-radius: 9999px;
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.bottom-0{bottom:0px}.left-1\/2{left:50%}.top-0{top:0px}.top-3{top:0.75rem}.z-\[10001\]{z-index:10001}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-2\.5{height:0.625rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-full{height:100%}.h-px{height:1px}.max-h-48{max-height:12rem}.max-h-80{max-height:20rem}.w-1{width:0.25rem}.w-10{width:2.5rem}.w-2\.5{width:0.625rem}.w-24{width:6rem}.w-28{width:7rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-6{width:1.5rem}.w-9{width:2.25rem}.w-\[300px\]{width:300px}.w-\[92vw\]{width:92vw}.w-full{width:100%}.w-px{width:1px}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.border-collapse{border-collapse:collapse}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-grab{cursor:grab}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:0.125rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-0\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.125rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-800 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(30 41 59 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-sm{border-radius:0.125rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-indigo-500\/30{border-color:rgb(99 102 241 / 0.3)}.border-indigo-500\/35{border-color:rgb(99 102 241 / 0.35)}.border-indigo-500\/40{border-color:rgb(99 102 241 / 0.4)}.border-red-500\/35{border-color:rgb(239 68 68 / 0.35)}.border-rose-500\/40{border-color:rgb(244 63 94 / 0.4)}.border-sky-500\/30{border-color:rgb(14 165 233 / 0.3)}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-slate-700\/80{border-color:rgb(51 65 85 / 0.8)}.border-slate-700\/90{border-color:rgb(51 65 85 / 0.9)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-800\/60{border-color:rgb(30 41 59 / 0.6)}.border-slate-800\/80{border-color:rgb(30 41 59 / 0.8)}.border-slate-800\/90{border-color:rgb(30 41 59 / 0.9)}.border-transparent{border-color:transparent}.border-red-500\/40{border-color:rgb(239 68 68 / 0.4)}.border-rose-500\/60{border-color:rgb(244 63 94 / 0.6)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/15{background-color:rgb(16 185 129 / 0.15)}.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}.bg-emerald-500\/45{background-color:rgb(16 185 129 / 0.45)}.bg-emerald-500\/70{background-color:rgb(16 185 129 / 0.7)}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-emerald-950\/15{background-color:rgb(2 44 34 / 0.15)}.bg-emerald-950\/30{background-color:rgb(2 44 34 / 0.3)}.bg-emerald-950\/40{background-color:rgb(2 44 34 / 0.4)}.bg-indigo-500\/20{background-color:rgb(99 102 241 / 0.2)}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-indigo-950\/20{background-color:rgb(30 27 75 / 0.2)}.bg-indigo-950\/80{background-color:rgb(30 27 75 / 0.8)}.bg-red-500\/20{background-color:rgb(239 68 68 / 0.2)}.bg-red-500\/75{background-color:rgb(239 68 68 / 0.75)}.bg-red-500\/85{background-color:rgb(239 68 68 / 0.85)}.bg-red-950\/35{background-color:rgb(69 10 10 / 0.35)}.bg-rose-500\/25{background-color:rgb(244 63 94 / 0.25)}.bg-rose-950\/60{background-color:rgb(76 5 25 / 0.6)}.bg-sky-500\/20{background-color:rgb(14 165 233 / 0.2)}.bg-sky-600{--tw-bg-opacity:1;background-color:rgb(2 132 199 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-slate-900\/70{background-color:rgb(15 23 42 / 0.7)}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-red-500\/25{background-color:rgb(239 68 68 / 0.25)}.bg-red-950\/45{background-color:rgb(69 10 10 / 0.45)}.bg-rose-950\/95{background-color:rgb(76 5 25 / 0.95)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-indigo-600{--tw-gradient-from:#4f46e5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(79 70 229 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-sky-600{--tw-gradient-to:#0284c7 var(--tw-gradient-to-position)}.p-1\.5{padding:0.375rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-5{padding:1.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.pb-24{padding-bottom:6rem}.pt-0\.5{padding-top:0.125rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-right{text-align:right}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-emerald-200{--tw-text-opacity:1;color:rgb(167 243 208 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-indigo-200{--tw-text-opacity:1;color:rgb(199 210 254 / var(--tw-text-opacity, 1))}.text-indigo-300{--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-rose-200{--tw-text-opacity:1;color:rgb(254 205 211 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.placeholder-slate-500::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139 / var(--tw-placeholder-opacity, 1))}.accent-indigo-500{accent-color:#6366f1}.opacity-0{opacity:0}.opacity-90{opacity:0.9}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_8px_\#fff\]{--tw-shadow:0 0 8px #fff;--tw-shadow-colored:0 0 8px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-indigo-600\/20{--tw-shadow-color:rgb(79 70 229 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.duration-300{transition-duration:300ms}.after\:absolute::after{content:var(--tw-content);position:absolute}.after\:left-\[2px\]::after{content:var(--tw-content);left:2px}.after\:top-\[2px\]::after{content:var(--tw-content);top:2px}.after\:h-4::after{content:var(--tw-content);height:1rem}.after\:w-4::after{content:var(--tw-content);width:1rem}.after\:rounded-full::after{content:var(--tw-content);border-radius:9999px}.after\:bg-white::after{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.after\:transition-all::after{content:var(--tw-content);transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.after\:content-\[\'\'\]::after{--tw-content:'';content:var(--tw-content)}.hover\:bg-emerald-500:hover{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-500:hover{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-900\/80:hover{background-color:rgb(49 46 129 / 0.8)}.hover\:bg-sky-500:hover{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-700\/70:hover{background-color:rgb(51 65 85 / 0.7)}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:from-indigo-500:hover{--tw-gradient-from:#6366f1 var(--tw-gradient-from-position);--tw-gradient-to:rgb(99 102 241 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-sky-500:hover{--tw-gradient-to:#0ea5e9 var(--tw-gradient-to-position)}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.focus\:border-indigo-500:focus{--tw-border-opacity:1;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:cursor-grabbing:active{cursor:grabbing}.peer:checked ~ .peer-checked\:bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.peer:checked ~ .peer-checked\:bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.peer:checked ~ .peer-checked\:after\:translate-x-full::after{content:var(--tw-content);--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.peer:focus ~ .peer-focus\:outline-none{outline:2px solid transparent;outline-offset:2px}@media (min-width: 640px){.sm\:w-72{width:18rem}.sm\:w-\[320px\]{width:320px}.sm\:flex-initial{flex:0 1 auto}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:pt-8{padding-top:2rem}.sm\:text-right{text-align:right}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}</style></head>
+<body class="pb-24">
+
+  <!-- Top Alert Toast Container -->
+  <div id="toastContainer" class="fixed top-3 left-1/2 -translate-x-1/2 z-[10001] flex flex-col gap-2 w-[92vw] max-w-md pointer-events-none"></div>
+
+  <!-- ========================================================= -->
+  <!-- DRAGGABLE ANDROID FLOATING WINDOW OVERLAY (CAPSULE & CARD) -->
+  <!-- ========================================================= -->
+  <div id="floatingWidget" style="top: 16px; right: 16px; opacity: 0.96;">
+    <!-- 1. Mini Capsule Mode (灵动胶囊态) -->
+    <div id="floatCapsuleView" class="hidden glass-panel rounded-full px-3.5 py-2 shadow-2xl flex items-center gap-2 cursor-grab active:cursor-grabbing border border-slate-700/80">
+      <span id="capsuleDot" class="w-2.5 h-2.5 rounded-full bg-red-500 pulse-ring-red shrink-0"></span>
+      <div class="flex items-center gap-2 text-xs font-medium whitespace-nowrap">
+        <span id="capsulePeriodTag" class="px-1.5 py-0.5 rounded text-[11px] font-semibold bg-red-500/25 text-red-300 border border-red-500/40">高峰全价</span>
+        <span id="capsuleCountdown" class="font-mono-num text-slate-200 font-semibold">01:37:40</span>
+        <span class="text-slate-600">|</span>
+        <span id="capsuleBalance" class="font-mono-num text-sky-300 font-bold">¥110.00</span>
+      </div>
+      <div class="flex items-center gap-1 ml-1">
+        <!-- Only this button stays interactive when pinned -->
+        <button id="btnCapsulePin" type="button" title="固定/解锁悬浮窗" class="unlock-only-interactive h-6 px-2 rounded-full inline-flex items-center justify-center gap-0.5 hover:bg-slate-700/70 text-slate-300 active:scale-90 transition">
+          <span id="capsulePinIcon" class="text-[11px] leading-none">🔓</span>
+          <span id="capsulePinText" class="text-[10px] leading-none font-semibold">固定</span>
+        </button>
+        <button id="btnExpandFloat" type="button" title="展开悬浮窗" class="float-other-action w-6 h-6 rounded-full inline-flex items-center justify-center hover:bg-slate-700/70 text-slate-300 active:scale-90 transition" style="opacity: 1;">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. Expanded Floating Card Mode (完整悬浮窗态) -->
+    <div id="floatCardView" class="glass-panel rounded-2xl w-[300px] sm:w-[320px] shadow-2xl border border-slate-700/80 overflow-hidden">
+      <!-- Drag Handle Header -->
+      <div id="floatDragHeader" class="px-3.5 py-2.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 cursor-grab active:cursor-grabbing">
+        <div class="flex items-center gap-1.5 min-w-0">
+          <span id="floatStatusDot" class="w-2.5 h-2.5 rounded-full bg-red-500 pulse-ring-red shrink-0"></span>
+          <span class="text-xs font-bold tracking-tight text-slate-100 truncate">DeepSeek 悬浮监控</span>
+          <span id="floatModeBadge" class="text-[10px] leading-none px-1.5 py-1 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30 font-semibold shrink-0">演示</span>
+        </div>
+        <div class="flex items-center gap-1 shrink-0">
+          <!-- Only this button stays interactive when pinned -->
+          <button id="btnFloatPin" type="button" title="固定/解锁悬浮窗位置" class="unlock-only-interactive float-icon-btn hover:bg-slate-800 text-slate-300 border border-transparent gap-0.5">
+            <span id="floatPinIcon">🔓</span>
+            <span id="floatPinText" class="text-[10px]">固定</span>
+          </button>
+          <button id="btnFloatRefresh" type="button" title="立即刷新余额" class="float-other-action float-icon-btn hover:bg-slate-800 text-slate-300" style="opacity: 1;">
+            <svg id="floatRefreshIcon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          </button>
+          <button id="btnFloatPiP" type="button" title="弹出安卓系统级画中画悬浮窗" class="float-other-action float-icon-btn hover:bg-slate-800 text-indigo-300" style="opacity: 1;">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          </button>
+          <button id="btnCollapseFloat" type="button" title="收起为迷你胶囊" class="float-other-action float-icon-btn hover:bg-slate-800 text-slate-300" style="opacity: 1;">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="p-3.5 space-y-3">
+        <!-- Balance Row -->
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-xs font-medium text-slate-400 flex items-center gap-1.5">
+              <span>总可用余额</span>
+              <span id="floatLowAlertBadge" class="hidden text-[10px] leading-none px-1.5 py-0.5 rounded bg-rose-500/25 text-rose-300 border border-rose-500/40 font-semibold">低于阈值!</span>
+            </div>
+            <div id="floatTotalBalance" class="text-2xl font-bold font-mono-num text-white tracking-tight mt-0.5">¥110.00</div>
+          </div>
+          <div class="text-right space-y-1">
+            <div class="text-xs text-slate-400">充值 <span id="floatToppedUp" class="font-mono-num text-slate-200 font-semibold">¥100.00</span></div>
+            <div class="text-xs text-slate-400">赠金 <span id="floatGranted" class="font-mono-num text-emerald-300 font-semibold">¥10.00</span></div>
+          </div>
+        </div>
+
+        <!-- Peak/Valley Status Box -->
+        <div id="floatPeriodBox" class="rounded-xl p-3 bg-red-950/45 border border-red-500/40 flex items-center justify-between gap-2">
+          <div class="space-y-1">
+            <div class="flex items-center gap-1.5">
+              <span id="floatPeriodBadge" class="text-xs font-bold text-red-400">🔴 高峰时段 · 标准价</span>
+            </div>
+            <div id="floatNextRuleHint" class="text-xs text-slate-300">距 18:00 夜间半价还有</div>
+          </div>
+          <div class="text-right shrink-0">
+            <div id="floatCountdown" class="text-base font-bold font-mono-num text-red-300">01:37:40</div>
+            <div id="floatBjtClock" class="text-[11px] font-mono-num text-slate-400 mt-0.5">北京时间 16:22:20</div>
+          </div>
+        </div>
+
+        <!-- Mini Footer Status -->
+        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-slate-800/80">
+          <span id="floatLastSync">上次更新: 8秒前</span>
+          <span id="floatDragHint" class="text-slate-400">按住任意处可拖动</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MAIN APPLICATION CONTAINER                                -->
+  <!-- ========================================================= -->
+  <div class="max-w-2xl mx-auto px-4 pt-6 sm:pt-8 space-y-5">
+
+    <!-- App Header -->
+    <header class="glass-card rounded-2xl p-5 flex flex-col gap-4 border border-slate-800/90">
+      <div class="space-y-1.5">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Android 悬浮窗专版</span>
+          <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">2026 官方最新规则</span>
+        </div>
+        <h1 class="text-lg sm:text-xl font-bold text-white tracking-tight">DeepSeek 余额 &amp; 峰谷时段监控台</h1>
+        <p class="text-xs text-slate-400 leading-relaxed">支持页内灵动胶囊穿透悬浮窗 + 安卓系统画中画 (PiP) 跨应用桌面置顶悬浮</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 border-t border-slate-800/80">
+        <button id="btnLaunchSystemPiP" type="button" class="btn-base w-full bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white shadow-md shadow-indigo-600/20">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          <span>开启安卓跨应用悬浮窗 (PiP)</span>
+        </button>
+        <button id="btnResetFloatPos" type="button" class="btn-base w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+          归位并解锁悬浮窗
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="grid grid-cols-3 gap-2 p-1.5 rounded-xl bg-slate-900/90 border border-slate-800">
+      <button id="tabBtnMonitor" type="button" data-tab="monitor" class="tab-nav-btn btn-base w-full text-slate-400 hover:text-slate-200">
+        📊 实时监控与配置
+      </button>
+      <button id="tabBtnPricing" type="button" data-tab="pricing" class="tab-nav-btn btn-base w-full text-slate-400 hover:text-slate-200">
+        ⏱️ 峰谷时间轴与价目
+      </button>
+      <button id="tabBtnAndroid" type="button" data-tab="android" class="tab-nav-btn btn-base w-full bg-indigo-600 text-white shadow">
+        🤖 安卓原生悬浮窗方案
+      </button>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: REAL-TIME MONITOR & CONFIGURATION                  -->
+    <!-- ========================================================= -->
+    <section id="tabPanelMonitor" class="space-y-4 hidden">
+
+      <!-- Unified Floating Window Pin & Pass-through Control Card -->
+      <div class="glass-card rounded-2xl p-5 border border-indigo-500/35 bg-indigo-950/20 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div id="pinStatusIconBox" class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-base shrink-0">🔓</div>
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <h2 class="text-sm font-bold text-white">固定悬浮窗开关（默认联动点击穿透）</h2>
+                <span id="pinMainStatusBadge" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">当前可自由拖动</span>
+              </div>
+              <p class="text-xs text-slate-400">开启固定后自动启用点击穿透，不遮挡下方任何操作，仅保留悬浮窗上的「解锁」按钮可点</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2.5 shrink-0">
+            <!-- Show/Hide Floating Window Switch -->
+            <label class="inline-flex items-center justify-between gap-2.5 cursor-pointer select-none bg-slate-900/90 h-10 px-3.5 rounded-xl border border-slate-700/90">
+              <span class="text-xs font-semibold text-slate-300">显示悬浮窗</span>
+              <input id="swShowFloatWindow" type="checkbox" checked="" class="sr-only peer">
+              <div class="w-9 h-5 bg-slate-700 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all relative peer-checked:bg-emerald-500"></div>
+            </label>
+
+            <!-- Master Pin + Click-Through Switch -->
+            <label class="inline-flex items-center justify-between gap-2.5 cursor-pointer select-none bg-slate-900/90 h-10 px-3.5 rounded-xl border border-slate-700/90">
+              <span id="swMainPinLabel" class="text-xs font-bold text-slate-200">🔓 固定并穿透: 关</span>
+              <input id="swMainPinFloat" type="checkbox" class="sr-only peer">
+              <div class="w-10 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all relative peer-checked:bg-indigo-600"></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Quick Dock & Pin Presets (Equal-width 4-button grid) -->
+        <div class="space-y-2 pt-3 border-t border-slate-800/80">
+          <div class="text-xs font-medium text-slate-400">一键吸附并固定（自动开启穿透，仅保留解锁按钮可点）：</div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <button id="btnDockTopLeft" type="button" class="btn-sm-unified w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">↖ 左上角固定</button>
+            <button id="btnDockTopCenter" type="button" class="btn-sm-unified w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">⬆ 顶部居中固定</button>
+            <button id="btnDockTopRight" type="button" class="btn-sm-unified w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">↗ 右上角固定</button>
+            <button id="btnDockCapsuleTop" type="button" class="btn-sm-unified w-full bg-indigo-950/80 hover:bg-indigo-900/80 text-indigo-200 border border-indigo-500/40">💊 胶囊态顶部固定</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Peak/Off-Peak Timeline & Status Banner -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <div class="text-xs text-slate-400">当前计费时段（按北京时间 UTC+8 自动换算）</div>
+            <div class="flex items-center gap-2 mt-1">
+              <span id="mainPeriodBadge" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-500/25 text-red-300 border border-red-500/40">🔴 高峰时段（标准计费）</span>
+              <span id="mainDayTypeBadge" class="px-2 py-0.5 rounded text-[11px] bg-slate-800 text-slate-300 border border-slate-700">工作日 (峰谷分时)</span>
+            </div>
+          </div>
+          <div class="text-left sm:text-right">
+            <div id="mainNextTransitionLabel" class="text-xs text-slate-400">距 18:00 夜间半价还有</div>
+            <div id="mainCountdown" class="text-2xl font-bold font-mono-num text-red-400 tracking-tight">01:37:40</div>
+          </div>
+        </div>
+
+        <!-- 24-Hour Visual Progress Bar -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-[11px] text-slate-400 font-mono-num">
+            <span>00:00</span>
+            <span>09:00 高峰</span>
+            <span>12:00 午休半价</span>
+            <span>14:00 高峰</span>
+            <span>18:00 夜间半价</span>
+            <span>24:00</span>
+          </div>
+          <div class="relative h-4 rounded-full bg-slate-900 overflow-hidden border border-slate-700/80 flex">
+            <div id="barSeg1" class="h-full bg-emerald-500/45 border-r border-slate-800/60" style="width: 37.5%" title="00:00-09:00 空闲半价"></div>
+            <div id="barSeg2" class="h-full bg-red-500/75 border-r border-slate-800/60" style="width: 12.5%" title="09:00-12:00 高峰标准价"></div>
+            <div id="barSeg3" class="h-full bg-emerald-500/45 border-r border-slate-800/60" style="width: 8.333%" title="12:00-14:00 午间空闲半价"></div>
+            <div id="barSeg4" class="h-full bg-red-500/75 border-r border-slate-800/60" style="width: 16.667%" title="14:00-18:00 高峰标准价"></div>
+            <div id="barSeg5" class="h-full bg-emerald-500/45" style="width: 25%" title="18:00-24:00 晚间空闲半价"></div>
+            <div id="timelineCursor" class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_8px_#fff] transition-all duration-500" style="left: 68.22%;"></div>
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-500/70 inline-block"></span>空闲时段 (5折)</span>
+              <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-red-500/85 inline-block"></span>高峰时段 (标准价)</span>
+            </div>
+            <span id="mainBjtText" class="font-mono-num text-slate-300">北京时间: 2026-10-22 16:22:20</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account Balance Details Card -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2.5">
+          <div class="flex items-center gap-2">
+            <h2 class="text-sm font-bold text-white">账户余额明细</h2>
+            <span id="accountAvailTag" class="px-2 py-0.5 text-[11px] font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">API 可用 (is_available: true)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="btnSimulateSpend" type="button" class="btn-sm-unified bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30">
+              ⚡ 模拟扣费测试
+            </button>
+            <button id="btnManualRefresh" type="button" class="btn-sm-unified bg-sky-600 hover:bg-sky-500 text-white">
+              <span>立即刷新</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl p-3.5 bg-slate-900/80 border border-slate-800 space-y-1">
+            <div class="text-xs font-medium text-slate-400">总可用余额 (total)</div>
+            <div id="cardTotalBalance" class="text-xl font-bold font-mono-num text-white">¥110.00</div>
+            <div class="text-[11px] text-slate-500">优先扣减赠送余额</div>
+          </div>
+          <div class="rounded-xl p-3.5 bg-slate-900/80 border border-slate-800 space-y-1">
+            <div class="text-xs font-medium text-slate-400">充值余额 (topped_up)</div>
+            <div id="cardToppedUpBalance" class="text-xl font-bold font-mono-num text-sky-300">¥100.00</div>
+            <div class="text-[11px] text-slate-500">实付充值可用额度</div>
+          </div>
+          <div class="rounded-xl p-3.5 bg-slate-900/80 border border-slate-800 space-y-1">
+            <div class="text-xs font-medium text-slate-400">赠金余额 (granted)</div>
+            <div id="cardGrantedBalance" class="text-xl font-bold font-mono-num text-emerald-300">¥10.00</div>
+            <div class="text-[11px] text-slate-500">有效期内未过期赠金</div>
+          </div>
+        </div>
+
+        <div id="apiErrorBanner" class="hidden rounded-xl p-3 bg-rose-950/60 border border-rose-500/40 text-xs text-rose-200"></div>
+      </div>
+
+      <!-- API Key & Notification Settings -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h2 class="text-sm font-bold text-white">⚙️ 接口配置与预警通知设置</h2>
+          <span class="text-xs text-slate-400">密钥仅保存在您的手机本地浏览器</span>
+        </div>
+
+        <!-- API Key Input -->
+        <div class="space-y-2">
+          <label for="inputApiKey" class="block text-xs font-medium text-slate-300">
+            DeepSeek API Key（留空则使用模拟演示数据，填入 <code class="text-sky-300">sk-...</code> 自动切换实盘查询）
+          </label>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <input id="inputApiKey" type="password" placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" class="control-input-unified flex-1 bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 font-mono-num">
+            <div class="flex gap-2 shrink-0">
+              <button id="btnToggleKeyVis" type="button" class="btn-base flex-1 sm:flex-initial bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+                显示
+              </button>
+              <button id="btnSaveApiKey" type="button" class="btn-base flex-1 sm:flex-initial bg-indigo-600 hover:bg-indigo-500 text-white">
+                保存并连接
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div class="rounded-xl p-3.5 bg-slate-900/70 border border-slate-800 flex items-center justify-between gap-3">
+            <div class="space-y-0.5">
+              <div class="text-xs font-semibold text-slate-200">自动刷新频率</div>
+              <div class="text-[11px] text-slate-400">定时请求 /user/balance</div>
+            </div>
+            <select id="selectRefreshInterval" class="h-8 rounded-lg bg-slate-800 border border-slate-700 px-2.5 text-xs text-white focus:outline-none shrink-0">
+              <option value="15">每 15 秒</option>
+              <option value="30">每 30 秒</option>
+              <option value="60" selected="">每 60 秒</option>
+              <option value="300">每 5 分钟</option>
+            </select>
+          </div>
+
+          <div class="rounded-xl p-3.5 bg-slate-900/70 border border-slate-800 flex items-center justify-between gap-3">
+            <div class="space-y-0.5">
+              <div class="text-xs font-semibold text-slate-200">余额不足预警阈值 (元)</div>
+              <div class="text-[11px] text-slate-400">低于该金额时悬浮窗变红并提醒</div>
+            </div>
+            <input id="inputLowThreshold" type="number" step="1" min="0" value="20" class="w-24 h-8 rounded-lg bg-slate-800 border border-slate-700 px-2.5 text-xs text-right font-mono-num text-white focus:outline-none shrink-0">
+          </div>
+
+          <div class="rounded-xl p-3.5 bg-slate-900/70 border border-slate-800 flex items-center justify-between gap-3">
+            <div class="space-y-0.5">
+              <div class="text-xs font-semibold text-slate-200">节假日/调休规则修正</div>
+              <div class="text-[11px] text-slate-400">法定节假日全天享 5 折空闲价</div>
+            </div>
+            <select id="selectHolidayMode" class="h-8 rounded-lg bg-slate-800 border border-slate-700 px-2.5 text-xs text-white focus:outline-none shrink-0">
+              <option value="auto" selected="">自动识别 (含2026节假日)</option>
+              <option value="holiday">强制设为节假日 (全天半价)</option>
+              <option value="workday">强制设为工作日 (含调休补班)</option>
+            </select>
+          </div>
+
+          <div class="rounded-xl p-3.5 bg-slate-900/70 border border-slate-800 flex items-center justify-between gap-3">
+            <div class="space-y-0.5 shrink-0">
+              <div class="text-xs font-semibold text-slate-200">悬浮窗透明度</div>
+              <div id="labelOpacityVal" class="text-[11px] text-slate-400 font-mono-num">96%</div>
+            </div>
+            <input id="rangeFloatOpacity" type="range" min="45" max="100" value="96" class="w-28 accent-indigo-500 cursor-pointer">
+          </div>
+        </div>
+
+        <!-- Sound Notification Toggle -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs">
+          <label class="inline-flex items-center gap-2 cursor-pointer text-slate-200 font-medium">
+            <input id="chkTransitionAlert" type="checkbox" checked="" class="rounded bg-slate-800 border-slate-600 text-indigo-600 focus:ring-0">
+            <span>开启峰谷切换 &amp; 余额不足声音与弹窗提醒</span>
+          </label>
+          <button id="btnTestAlertSound" type="button" class="btn-sm-unified bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+            🔔 测试峰谷切换/低额提醒音效
+          </button>
+        </div>
+      </div>
+
+      <!-- Canvas + Video for Android System Picture-in-Picture (PiP) Floating Window -->
+      <div class="glass-card rounded-2xl p-5 space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xs font-bold text-indigo-300 uppercase tracking-wider">安卓系统级画中画 (PiP) 实时渲染流预览</h3>
+            <p class="text-[11px] text-slate-400 mt-0.5">在手机 Chrome / Edge 点击顶部「开启安卓跨应用悬浮窗」，可将下方实时画面变为系统置顶小窗，切回手机桌面或其他 App 依然悬浮显示</p>
+          </div>
+          <span id="pipStatusBadge" class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-400 border border-slate-700">未弹出</span>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+          <canvas id="pipCanvas" width="480" height="220" class="w-full sm:w-72 rounded-xl border border-slate-700 shadow-inner bg-slate-950"></canvas>
+          <video id="pipVideo" muted="" playsinline="" class="w-px h-px opacity-0 pointer-events-none absolute"></video>
+          <div class="text-xs text-slate-300 space-y-1.5 flex-1">
+            <div class="font-semibold text-white">为什么用画中画实现免安装系统悬浮窗？</div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              安卓系统限制普通网页直接跳出浏览器显示，但支持将实时视频流以<strong>系统级画中画悬浮窗</strong>置顶在任意应用上方。本工具将余额与峰谷倒计时实时绘制为高清动态流，无需安装 APK 即可在手机桌面任意拖拽悬浮。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: PEAK/OFF-PEAK SCHEDULE & PRICING REFERENCE         -->
+    <!-- ========================================================= -->
+    <section id="tabPanelPricing" class="hidden space-y-4">
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="space-y-1">
+          <h2 class="text-sm font-bold text-white">DeepSeek 最新官方峰谷时段划分规则</h2>
+          <p class="text-xs text-slate-400">数据同步自官方定价页（按北京时间 UTC+8 结算，空闲时段全部半价）：</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="rounded-xl p-3.5 bg-red-950/35 border border-red-500/35 space-y-1.5">
+            <div class="font-bold text-red-400 flex items-center justify-between">
+              <span>🔴 高峰时段（标准全价）</span>
+              <span class="text-[11px] font-mono-num px-2 py-0.5 rounded bg-red-500/20 text-red-300">共 7 小时/工作日</span>
+            </div>
+            <p class="text-slate-300">北京时间周一至周五（不含中国法定节假日）：</p>
+            <ul class="list-disc list-inside text-red-300 font-mono-num space-y-0.5">
+              <li>上午时段：09:00 — 12:00</li>
+              <li>下午时段：14:00 — 18:00</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl p-3.5 bg-emerald-950/30 border border-emerald-500/30 space-y-1.5">
+            <div class="font-bold text-emerald-300 flex items-center justify-between">
+              <span>🟢 空闲时段（5 折半价优惠）</span>
+              <span class="text-[11px] font-mono-num px-2 py-0.5 rounded bg-emerald-500/20">工作日 17h / 周末全天</span>
+            </div>
+            <p class="text-slate-300">除高峰外的所有时间，包含：</p>
+            <ul class="list-disc list-inside text-emerald-200 font-mono-num space-y-0.5">
+              <li>工作日午休：12:00 — 14:00</li>
+              <li>工作日晚间至次日晨：18:00 — 次日 09:00</li>
+              <li>周末（周六、周日）及中国法定节假日全天</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-slate-700 text-slate-300 bg-slate-900/60">
+                <th class="py-2.5 px-3">计费项 (百万 Tokens)</th>
+                <th class="py-2.5 px-3">时段</th>
+                <th class="py-2.5 px-3 text-right">deepseek-flash</th>
+                <th class="py-2.5 px-3 text-right">deepseek-v4-pro</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 font-mono-num">
+              <tr class="bg-emerald-950/15">
+                <td class="py-2 px-3 font-sans text-slate-200">输入（缓存命中）</td>
+                <td class="py-2 px-3 text-emerald-300 font-sans">空闲半价</td>
+                <td class="py-2 px-3 text-right text-emerald-300 font-semibold">¥0.02</td>
+                <td class="py-2 px-3 text-right text-emerald-300 font-semibold">¥0.15</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans text-slate-400">输入（缓存命中）</td>
+                <td class="py-2 px-3 text-red-400 font-sans">高峰标准</td>
+                <td class="py-2 px-3 text-right text-slate-300">¥0.04</td>
+                <td class="py-2 px-3 text-right text-slate-300">¥0.30</td>
+              </tr>
+              <tr class="bg-emerald-950/15">
+                <td class="py-2 px-3 font-sans text-slate-200">输入（缓存未命中）</td>
+                <td class="py-2 px-3 text-emerald-300 font-sans">空闲半价</td>
+                <td class="py-2 px-3 text-right text-emerald-300 font-semibold">¥1.00</td>
+                <td class="py-2 px-3 text-right text-emerald-300 font-semibold">¥4.50</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans text-slate-400">输入（缓存未命中）</td>
+                <td class="py-2 px-3 text-red-400 font-sans">高峰标准</td>
+                <td class="py-2 px-3 text-right text-slate-300">¥2.00</td>
+                <td class="py-2 px-3 text-right text-slate-300">¥9.00</td>
+              </tr>
+              <tr class="bg-emerald-950/15">
+                <td class="py-2 px-3 font-sans text-slate-200">模型输出</td>
+                <td class="py-2 px-3 text-emerald-300 font-sans">空闲半价</td>
+                <td class="py-2 px-3 text-right text-emerald-300 font-semibold">¥4.00</td>
+                <td class="py-2 px-3 text-right text-emerald-300 font-semibold">¥13.50</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans text-slate-400">模型输出</td>
+                <td class="py-2 px-3 text-red-400 font-sans">高峰标准</td>
+                <td class="py-2 px-3 text-right text-slate-300">¥8.00</td>
+                <td class="py-2 px-3 text-right text-slate-300">¥27.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: ANDROID NATIVE FLOATING SCRIPT & GITHUB PUSH       -->
+    <!-- ========================================================= -->
+    <section id="tabPanelAndroid" class="space-y-4">
+      <div class="glass-card rounded-2xl p-5 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm font-bold text-white">方案 A：手机端免编译原生系统悬浮窗脚本 (AutoX.js / Auto.js)</h2>
+            <p class="text-xs text-slate-400 mt-0.5">无需电脑编译 APK，在安卓手机安装开源免费的 AutoX.js，粘贴下方脚本即可一键运行安卓原生 <code class="text-sky-300">WindowManager</code> 悬浮窗</p>
+          </div>
+          <button id="btnCopyAutoJs" type="button" class="btn-base bg-indigo-600 hover:bg-indigo-500 text-white shrink-0">
+            📋 一键复制安卓悬浮窗脚本
+          </button>
+        </div>
+
+        <pre id="codeAutoJsBlock" class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-[11px] font-mono-num text-slate-300 overflow-x-auto max-h-80 leading-relaxed">"ui";
+// DeepSeek 余额与峰谷监控安卓原生悬浮窗脚本 (AutoX.js / Auto.js 通用)
+const storage = storages.create("deepseek_monitor_cfg");
+
+ui.layout(
+  &lt;vertical padding="20" bg="#0f172a"&gt;
+    &lt;text text="DeepSeek 悬浮窗监控 (安卓原生)" textSize="20sp" textColor="#ffffff" textStyle="bold" marginBottom="8"/&gt;
+    &lt;text text="支持最新官方峰谷时段 (工作日 9:00-12:00、14:00-18:00 高峰，其余空闲半价)" textSize="12sp" textColor="#94a3b8" marginBottom="16"/&gt;
+    &lt;text text="DeepSeek API Key:" textSize="13sp" textColor="#cbd5e1"/&gt;
+    &lt;input id="apiKey" hint="sk-xxxxxxxxxxxxxxxx" textColor="#ffffff" textSize="14sp" marginBottom="12"/&gt;
+    &lt;horizontal marginBottom="12"&gt;
+      &lt;text text="低余额提醒阈值(元):" textSize="13sp" textColor="#cbd5e1" layout_weight="1"/&gt;
+      &lt;input id="threshold" text="20" inputType="numberDecimal" textColor="#ffffff" w="80"/&gt;
+    &lt;/horizontal&gt;
+    &lt;horizontal marginBottom="12"&gt;
+      &lt;text text="刷新频率(秒):" textSize="13sp" textColor="#cbd5e1" layout_weight="1"/&gt;
+      &lt;input id="intervalSec" text="60" inputType="number" textColor="#ffffff" w="80"/&gt;
+    &lt;/horizontal&gt;
+    &lt;Switch id="swPinWindow" text="📌 固定悬浮窗并开启点击穿透 (仅保留解锁可点)" checked="false" textColor="#cbd5e1" marginBottom="16"/&gt;
+    &lt;button id="btnStart" text="启动安卓系统置顶悬浮窗" style="Widget.AppCompat.Button.Colored"/&gt;
+    &lt;button id="btnStop" text="关闭所有悬浮窗" marginTop="8"/&gt;
+  &lt;/vertical&gt;
+);
+
+ui.apiKey.setText(storage.get("apiKey", ""));
+ui.threshold.setText(String(storage.get("threshold", "20")));
+ui.intervalSec.setText(String(storage.get("intervalSec", "60")));
+ui.swPinWindow.setChecked(Boolean(storage.get("isPinned", false)));
+
+ui.btnStop.on("click", () =&gt; { floaty.closeAll(); toast("已关闭悬浮窗"); });
+ui.btnStart.on("click", () =&gt; {
+  if (!floaty.checkPermission()) {
+    toast("请先授予悬浮窗权限");
+    floaty.requestPermission();
+    return;
+  }
+  storage.put("apiKey", String(ui.apiKey.text()).trim());
+  storage.put("threshold", String(ui.threshold.text()).trim());
+  storage.put("intervalSec", String(ui.intervalSec.text()).trim());
+  storage.put("isPinned", ui.swPinWindow.isChecked());
+  threads.start(launchFloatingWindow);
+});</pre>
+      </div>
+
+      <div class="glass-card rounded-2xl p-5 space-y-4 text-xs text-slate-300 border border-indigo-500/35">
+        <div class="space-y-1">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-sm font-bold text-white">📲 手机端一键推送到 GitHub 仓库（免解压多层文件夹）</h3>
+            <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">自动脱敏不泄露密钥</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            填入新建的 GitHub 仓库名与 Personal Access Token（勾选 <code class="text-sky-300">repo</code> 权限），即可从手机直接把应用网页与安卓脚本推送到仓库（推送前自动清空页面内填写的密钥）：
+          </p>
+        </div>
+
+        <!-- Quick copy helpers for GitHub Mobile "新建存储库" screen -->
+        <div class="rounded-xl p-3.5 bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="text-xs font-semibold text-indigo-300">📋 手机端「新建存储库」快捷复制（对应您截图中的两项）：</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button id="btnCopyRepoName" type="button" class="btn-sm-unified w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 justify-between">
+              <span class="truncate">仓库名称: <strong class="font-mono-num text-sky-300">deepseek-float-monitor</strong></span>
+              <span class="text-indigo-300 shrink-0">复制</span>
+            </button>
+            <button id="btnCopyRepoDesc" type="button" class="btn-sm-unified w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 justify-between">
+              <span class="truncate">描述: <strong class="text-slate-300">DeepSeek余额与峰谷监控悬浮窗</strong></span>
+              <span class="text-indigo-300 shrink-0">复制</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label for="inputGhRepo" class="block text-xs font-medium text-slate-300">GitHub 仓库（已预填您的账号 Cecilia-Sen）</label>
+            <input id="inputGhRepo" type="text" value="Cecilia-Sen/deepseek-float-monitor" placeholder="Cecilia-Sen/deepseek-float-monitor" class="control-input-unified w-full bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 font-mono-num">
+          </div>
+          <div class="space-y-1">
+            <label for="inputGhBranch" class="block text-xs font-medium text-slate-300">目标分支名称</label>
+            <input id="inputGhBranch" type="text" value="main" placeholder="main" class="control-input-unified w-full bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 font-mono-num">
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="inputGhToken" class="block text-xs font-medium text-slate-300">GitHub Personal Access Token（必须以 <code class="text-sky-300">ghp_</code> 或 <code class="text-sky-300">github_pat_</code> 开头，纯英文数字）</label>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <div class="flex flex-1 gap-1.5">
+              <input id="inputGhToken" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" class="control-input-unified flex-1 bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 font-mono-num">
+              <button id="btnToggleGhTokenVis" type="button" class="btn-base bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 shrink-0">
+                显示
+              </button>
+            </div>
+            <button id="btnPushToGithub" type="button" class="btn-base bg-indigo-600 hover:bg-indigo-500 text-white shrink-0" disabled="">
+              🚀 一键从手机推送至 GitHub 仓库
+            </button>
+          </div>
+        </div>
+
+        <div id="ghPushStatusBox" class="rounded-xl p-3 bg-slate-900/90 border border-slate-700 font-mono-num text-[11px] text-slate-200 space-y-1"></div>
+
+        <!-- Self-contained GitHub Actions Workflow Copy Block (Fixes exit code 1) -->
+        <div class="pt-3 border-t border-slate-800/80 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div class="text-xs font-bold text-emerald-300">🛠️ 修复 GitHub Actions 报错 (exit code 1) 自包含工作流</div>
+              <div class="text-[11px] text-slate-400">此配置内置全部 Kotlin 工程文件与 Gradle 8.5，即使仓库为空也能 100% 编译成功</div>
+            </div>
+            <button id="btnCopyWorkflowYml" type="button" class="btn-sm-unified bg-emerald-600 hover:bg-emerald-500 text-white shrink-0">
+              📋 一键复制 build-apk.yml
+            </button>
+          </div>
+          <pre id="codeWorkflowBlock" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[10px] font-mono-num text-slate-300 overflow-x-auto max-h-48 leading-relaxed">name: Build DeepSeek Floating Monitor APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Prepare Complete Android Project (Auto-Unzip or Auto-Generate)
+        shell: bash
+        run: |
+          set -e
+          if [ -f "deepseek_android_floating_app.zip" ]; then
+            unzip -o deepseek_android_floating_app.zip
+          fi
+
+          mkdir -p android-kotlin-app/app/src/main/java/com/deepseek/floatmonitor
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/settings.gradle
+          pluginManagement {
+              repositories {
+                  google()
+                  mavenCentral()
+                  gradlePluginPortal()
+              }
+          }
+          dependencyResolutionManagement {
+              repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          rootProject.name = "DeepSeekFloatMonitor"
+          include(":app")
+          EOF
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/build.gradle
+          plugins {
+              id("com.android.application") version "8.2.2" apply false
+              id("org.jetbrains.kotlin.android") version "1.9.22" apply false
+          }
+          EOF
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/gradle.properties
+          org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+          android.useAndroidX=true
+          kotlin.code.style=official
+          android.nonTransitiveRClass=true
+          EOF
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/app/build.gradle
+          plugins {
+              id("com.android.application")
+              id("org.jetbrains.kotlin.android")
+          }
+
+          android {
+              namespace = "com.deepseek.floatmonitor"
+              compileSdk = 34
+
+              defaultConfig {
+                  applicationId = "com.deepseek.floatmonitor"
+                  minSdk = 24
+                  targetSdk = 33
+                  versionCode = 2
+                  versionName = "2.0"
+              }
+
+              buildTypes {
+                  release {
+                      isMinifyEnabled = false
+                  }
+              }
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
+              }
+              kotlinOptions {
+                  jvmTarget = "17"
+              }
+          }
+
+          dependencies {
+          }
+          EOF
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/app/src/main/AndroidManifest.xml
+          &lt;?xml version="1.0" encoding="utf-8"?&gt;
+          &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+
+              &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+              &lt;uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /&gt;
+              &lt;uses-permission android:name="android.permission.FOREGROUND_SERVICE" /&gt;
+              &lt;uses-permission android:name="android.permission.POST_NOTIFICATIONS" /&gt;
+
+              &lt;application
+                  android:allowBackup="true"
+                  android:label="DeepSeek悬浮监控"
+                  android:supportsRtl="true"
+                  android:theme="@android:style/Theme.DeviceDefault.NoActionBar"&gt;
+
+                  &lt;activity
+                      android:name=".MainActivity"
+                      android:exported="true"&gt;
+                      &lt;intent-filter&gt;
+                          &lt;action android:name="android.intent.action.MAIN" /&gt;
+                          &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+                      &lt;/intent-filter&gt;
+                  &lt;/activity&gt;
+
+                  &lt;service
+                      android:name=".FloatingMonitorService"
+                      android:enabled="true"
+                      android:exported="false" /&gt;
+              &lt;/application&gt;
+          &lt;/manifest&gt;
+          EOF
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/app/src/main/java/com/deepseek/floatmonitor/MainActivity.kt
+          package com.deepseek.floatmonitor
+
+          import android.app.Activity
+          import android.content.Context
+          import android.content.Intent
+          import android.graphics.Color
+          import android.graphics.drawable.GradientDrawable
+          import android.net.Uri
+          import android.os.Build
+          import android.os.Bundle
+          import android.provider.Settings
+          import android.text.InputType
+          import android.widget.Button
+          import android.widget.EditText
+          import android.widget.LinearLayout
+          import android.widget.ScrollView
+          import android.widget.Switch
+          import android.widget.TextView
+          import android.widget.Toast
+
+          class MainActivity : Activity() {
+
+              override fun onCreate(savedInstanceState: Bundle?) {
+                  super.onCreate(savedInstanceState)
+                  val prefs = getSharedPreferences("deepseek_cfg", Context.MODE_PRIVATE)
+
+                  val root = ScrollView(this).apply {
+                      setBackgroundColor(Color.parseColor("#0F172A"))
+                  }
+                  val container = LinearLayout(this).apply {
+                      orientation = LinearLayout.VERTICAL
+                      setPadding(48, 64, 48, 64)
+                  }
+
+                  val title = TextView(this).apply {
+                      text = "DeepSeek 余额 &amp; 峰谷悬浮窗"
+                      textSize = 20f
+                      setTextColor(Color.WHITE)
+                  }
+                  val subtitle = TextView(this).apply {
+                      text = "最新官方规则：工作日 09:00-12:00、14:00-18:00 红色高峰；其余时段绿色 5 折半价"
+                      textSize = 12f
+                      setTextColor(Color.parseColor("#94A3B8"))
+                      setPadding(0, 8, 0, 36)
+                  }
+
+                  val inputKey = EditText(this).apply {
+                      hint = "填入 DeepSeek API Key (sk-...)"
+                      setText(prefs.getString("api_key", ""))
+                      setTextColor(Color.WHITE)
+                      setHintTextColor(Color.parseColor("#64748B"))
+                  }
+
+                  val inputThreshold = EditText(this).apply {
+                      hint = "低余额预警阈值 (默认 20 元)"
+                      inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+                      setText(prefs.getFloat("low_threshold", 20f).toString())
+                      setTextColor(Color.WHITE)
+                  }
+
+                  val inputInterval = EditText(this).apply {
+                      hint = "刷新间隔秒数 (默认 60 秒)"
+                      inputType = InputType.TYPE_CLASS_NUMBER
+                      setText(prefs.getInt("refresh_sec", 60).toString())
+                      setTextColor(Color.WHITE)
+                  }
+
+                  val swPin = Switch(this).apply {
+                      text = "📌 固定悬浮窗位置（默认开启点击穿透，仅保留解锁可点）"
+                      isChecked = prefs.getBoolean("is_pinned", false)
+                      setTextColor(Color.parseColor("#E2E8F0"))
+                      setPadding(0, 24, 0, 24)
+                  }
+
+                  val btnStart = Button(this).apply {
+                      text = "🚀 启动 / 更新安卓系统悬浮窗"
+                      setTextColor(Color.WHITE)
+                      background = GradientDrawable().apply {
+                          setColor(Color.parseColor("#4F46E5"))
+                          cornerRadius = 24f
+                      }
+                  }
+
+                  val btnStop = Button(this).apply {
+                      text = "关闭悬浮窗服务"
+                      setTextColor(Color.parseColor("#CBD5E1"))
+                      background = GradientDrawable().apply {
+                          setColor(Color.parseColor("#1E293B"))
+                          cornerRadius = 24f
+                      }
+                  }
+
+                  btnStart.setOnClickListener {
+                      if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.M &amp;&amp; !Settings.canDrawOverlays(this)) {
+                          Toast.makeText(this, "请先授予悬浮窗权限", Toast.LENGTH_LONG).show()
+                          startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")))
+                          return@setOnClickListener
+                      }
+                      val key = inputKey.text.toString().trim()
+                      val threshold = inputThreshold.text.toString().toDoubleOrNull() ?: 20.0
+                      val interval = (inputInterval.text.toString().toIntOrNull() ?: 60).coerceAtLeast(15)
+                      val pinned = swPin.isChecked
+
+                      prefs.edit()
+                          .putString("api_key", key)
+                          .putFloat("low_threshold", threshold.toFloat())
+                          .putInt("refresh_sec", interval)
+                          .putBoolean("is_pinned", pinned)
+                          .apply()
+
+                      val svcIntent = Intent(this, FloatingMonitorService::class.java).apply {
+                          putExtra("API_KEY", key)
+                          putExtra("LOW_THRESHOLD", threshold)
+                          putExtra("REFRESH_SEC", interval)
+                          putExtra("IS_PINNED", pinned)
+                      }
+                      if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
+                          startForegroundService(svcIntent)
+                      } else {
+                          startService(svcIntent)
+                      }
+                      Toast.makeText(this, "悬浮窗已启动", Toast.LENGTH_SHORT).show()
+                  }
+
+                  btnStop.setOnClickListener {
+                      stopService(Intent(this, FloatingMonitorService::class.java))
+                      Toast.makeText(this, "悬浮窗已关闭", Toast.LENGTH_SHORT).show()
+                  }
+
+                  container.addView(title)
+                  container.addView(subtitle)
+                  container.addView(inputKey)
+                  container.addView(inputThreshold)
+                  container.addView(inputInterval)
+                  container.addView(swPin)
+                  container.addView(btnStart, LinearLayout.LayoutParams(
+                      LinearLayout.LayoutParams.MATCH_PARENT, 120
+                  ).apply { bottomMargin = 24 })
+                  container.addView(btnStop, LinearLayout.LayoutParams(
+                      LinearLayout.LayoutParams.MATCH_PARENT, 110
+                  ))
+
+                  root.addView(container)
+                  setContentView(root)
+              }
+          }
+          EOF
+
+          cat &lt;&lt; 'EOF' &gt; android-kotlin-app/app/src/main/java/com/deepseek/floatmonitor/FloatingMonitorService.kt
+          package com.deepseek.floatmonitor
+
+          import android.app.Notification
+          import android.app.NotificationChannel
+          import android.app.NotificationManager
+          import android.app.Service
+          import android.content.Context
+          import android.content.Intent
+          import android.graphics.Color
+          import android.graphics.PixelFormat
+          import android.graphics.drawable.GradientDrawable
+          import android.os.Build
+          import android.os.Handler
+          import android.os.IBinder
+          import android.os.Looper
+          import android.view.Gravity
+          import android.view.MotionEvent
+          import android.view.View
+          import android.view.WindowManager
+          import android.widget.LinearLayout
+          import android.widget.TextView
+          import android.widget.Toast
+          import org.json.JSONObject
+          import java.net.HttpURLConnection
+          import java.net.URL
+          import java.util.Calendar
+          import java.util.TimeZone
+          import kotlin.concurrent.thread
+
+          class FloatingMonitorService : Service() {
+
+              private lateinit var windowManager: WindowManager
+              private lateinit var cardLayout: LinearLayout
+              private lateinit var unlockPill: TextView
+              private lateinit var cardParams: WindowManager.LayoutParams
+              private lateinit var unlockParams: WindowManager.LayoutParams
+
+              private lateinit var txtBadge: TextView
+              private lateinit var txtBalance: TextView
+              private lateinit var txtSubBalance: TextView
+              private lateinit var txtCountdown: TextView
+
+              private val handler = Handler(Looper.getMainLooper())
+              private var apiKey: String = ""
+              private var lowThreshold: Double = 20.0
+              private var refreshIntervalSec: Long = 60L
+              private var isPinned: Boolean = false
+
+              private val tickRunnable = object : Runnable {
+                  override fun run() {
+                      updatePeakValleyClock()
+                      handler.postDelayed(this, 1000L)
+                  }
+              }
+
+              private val balanceRunnable = object : Runnable {
+                  override fun run() {
+                      fetchBalanceAsync()
+                      handler.postDelayed(this, refreshIntervalSec * 1000L)
+                  }
+              }
+
+              override fun onCreate() {
+                  super.onCreate()
+                  startForeground(1001, createForegroundNotification("DeepSeek 峰谷与余额悬浮窗运行中"))
+                  initFloatingWindows()
+              }
+
+              override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+                  apiKey = intent?.getStringExtra("API_KEY")?.trim() ?: ""
+                  lowThreshold = intent?.getDoubleExtra("LOW_THRESHOLD", 20.0) ?: 20.0
+                  refreshIntervalSec = (intent?.getIntExtra("REFRESH_SEC", 60) ?: 60).toLong().coerceAtLeast(15L)
+                  isPinned = intent?.getBooleanExtra("IS_PINNED", false) ?: false
+
+                  applyPinAndPassthroughState()
+                  handler.removeCallbacks(tickRunnable)
+                  handler.removeCallbacks(balanceRunnable)
+                  handler.post(tickRunnable)
+                  handler.post(balanceRunnable)
+                  return START_STICKY
+              }
+
+              private fun overlayType(): Int {
+                  return if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
+                      WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+                  } else {
+                      @Suppress("DEPRECATION")
+                      WindowManager.LayoutParams.TYPE_PHONE
+                  }
+              }
+
+              private fun initFloatingWindows() {
+                  windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+                  val bgDrawable = GradientDrawable().apply {
+                      setColor(Color.parseColor("#EE0F172A"))
+                      cornerRadius = 36f
+                      setStroke(2, Color.parseColor("#334155"))
+                  }
+
+                  cardLayout = LinearLayout(this).apply {
+                      orientation = LinearLayout.VERTICAL
+                      background = bgDrawable
+                      setPadding(32, 24, 32, 24)
+                  }
+
+                  txtBadge = TextView(this).apply {
+                      text = "🟢 空闲时段 · 5折半价"
+                      textSize = 11f
+                      setTextColor(Color.parseColor("#34D399"))
+                  }
+                  txtBalance = TextView(this).apply {
+                      text = "¥ --.--"
+                      textSize = 18f
+                      setTextColor(Color.WHITE)
+                  }
+                  txtSubBalance = TextView(this).apply {
+                      text = "充: -- | 赠: --"
+                      textSize = 10f
+                      setTextColor(Color.parseColor("#94A3B8"))
+                  }
+                  txtCountdown = TextView(this).apply {
+                      text = "距切换: --:--:--"
+                      textSize = 11f
+                      setTextColor(Color.parseColor("#38BDF8"))
+                  }
+
+                  cardLayout.addView(txtBadge)
+                  cardLayout.addView(txtBalance)
+                  cardLayout.addView(txtSubBalance)
+                  cardLayout.addView(txtCountdown)
+
+                  cardParams = WindowManager.LayoutParams(
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      overlayType(),
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                      PixelFormat.TRANSLUCENT
+                  ).apply {
+                      gravity = Gravity.TOP or Gravity.START
+                      x = 60
+                      y = 240
+                  }
+
+                  unlockPill = TextView(this).apply {
+                      text = "🔓 固定"
+                      textSize = 10f
+                      setTextColor(Color.WHITE)
+                      setPadding(20, 10, 20, 10)
+                      background = GradientDrawable().apply {
+                          setColor(Color.parseColor("#EE312E81"))
+                          cornerRadius = 999f
+                          setStroke(2, Color.parseColor("#6366F1"))
+                      }
+                      setOnClickListener {
+                          isPinned = !isPinned
+                          applyPinAndPassthroughState()
+                          Toast.makeText(
+                              this@FloatingMonitorService,
+                              if (isPinned) "📌 已固定并开启点击穿透（仅解锁可点）" else "🔓 已解锁悬浮窗拖动",
+                              Toast.LENGTH_SHORT
+                          ).show()
+                      }
+                  }
+
+                  unlockParams = WindowManager.LayoutParams(
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      overlayType(),
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                      PixelFormat.TRANSLUCENT
+                  ).apply {
+                      gravity = Gravity.TOP or Gravity.START
+                      x = cardParams.x + 220
+                      y = cardParams.y - 18
+                  }
+
+                  cardLayout.setOnTouchListener(object : View.OnTouchListener {
+                      private var initX = 0
+                      private var initY = 0
+                      private var touchX = 0f
+                      private var touchY = 0f
+
+                      override fun onTouch(v: View, event: MotionEvent): Boolean {
+                          if (isPinned) return false
+                          when (event.action) {
+                              MotionEvent.ACTION_DOWN -&gt; {
+                                  initX = cardParams.x
+                                  initY = cardParams.y
+                                  touchX = event.rawX
+                                  touchY = event.rawY
+                                  return true
+                              }
+                              MotionEvent.ACTION_MOVE -&gt; {
+                                  cardParams.x = initX + (event.rawX - touchX).toInt()
+                                  cardParams.y = initY + (event.rawY - touchY).toInt()
+                                  unlockParams.x = cardParams.x + 220
+                                  unlockParams.y = cardParams.y - 18
+                                  windowManager.updateViewLayout(cardLayout, cardParams)
+                                  windowManager.updateViewLayout(unlockPill, unlockParams)
+                                  return true
+                              }
+                          }
+                          return false
+                      }
+                  })
+
+                  windowManager.addView(cardLayout, cardParams)
+                  windowManager.addView(unlockPill, unlockParams)
+              }
+
+              private fun applyPinAndPassthroughState() {
+                  if (!::cardLayout.isInitialized) return
+                  cardParams.flags = if (isPinned) {
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                          WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                          WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                  } else {
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                          WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                  }
+                  unlockPill.text = if (isPinned) "📌 解锁" else "🔓 固定"
+                  windowManager.updateViewLayout(cardLayout, cardParams)
+                  windowManager.updateViewLayout(unlockPill, unlockParams)
+              }
+
+              private fun updatePeakValleyClock() {
+                  val cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai"))
+                  val dayOfWeek = cal.get(Calendar.DAY_OF_WEEK)
+                  val hours = cal.get(Calendar.HOUR_OF_DAY)
+                  val minutes = cal.get(Calendar.MINUTE)
+                  val seconds = cal.get(Calendar.SECOND)
+                  val totalMins = hours * 60 + minutes
+                  val totalSecs = totalMins * 60 + seconds
+
+                  val isWeekend = (dayOfWeek == Calendar.SUNDAY || dayOfWeek == Calendar.SATURDAY)
+                  val isPeak = !isWeekend &amp;&amp; ((totalMins in 540 until 720) || (totalMins in 840 until 1080))
+
+                  val targetSecs = if (!isWeekend) {
+                      when {
+                          totalMins &lt; 540 -&gt; 540 * 60
+                          totalMins &lt; 720 -&gt; 720 * 60
+                          totalMins &lt; 840 -&gt; 840 * 60
+                          totalMins &lt; 1080 -&gt; 1080 * 60
+                          dayOfWeek == Calendar.FRIDAY -&gt; 3 * 86400 + 540 * 60
+                          else -&gt; 86400 + 540 * 60
+                      }
+                  } else {
+                      val daysToMon = if (dayOfWeek == Calendar.SATURDAY) 2 else 1
+                      daysToMon * 86400 + 540 * 60
+                  }
+
+                  val rem = (targetSecs - totalSecs).coerceAtLeast(0)
+                  val hh = rem / 3600
+                  val mm = (rem % 3600) / 60
+                  val ss = rem % 60
+
+                  txtBadge.text = if (isPeak) "🔴 高峰时段 · 标准价" else "🟢 空闲时段 · 5折半价"
+                  txtBadge.setTextColor(Color.parseColor(if (isPeak) "#F87171" else "#34D399"))
+                  txtCountdown.text = String.format("距切换: %02d:%02d:%02d", hh, mm, ss)
+              }
+
+              private fun fetchBalanceAsync() {
+                  if (apiKey.isEmpty()) {
+                      handler.post {
+                          txtBalance.text = "¥ 110.00 (演示)"
+                          txtSubBalance.text = "充: ¥100.00 | 赠: ¥10.00"
+                      }
+                      return
+                  }
+                  thread {
+                      try {
+                          val conn = (URL("https://api.deepseek.com/user/balance").openConnection() as HttpURLConnection).apply {
+                              requestMethod = "GET"
+                              setRequestProperty("Accept", "application/json")
+                              setRequestProperty("Authorization", "Bearer $apiKey")
+                              connectTimeout = 8000
+                              readTimeout = 8000
+                          }
+                          val body = conn.inputStream.bufferedReader().use { it.readText() }
+                          val json = JSONObject(body)
+                          val first = json.optJSONArray("balance_infos")?.optJSONObject(0)
+                          val currency = first?.optString("currency", "CNY") ?: "CNY"
+                          val sym = if (currency == "USD") "$" else "¥"
+                          val total = first?.optString("total_balance", "0.00")?.toDoubleOrNull() ?: 0.0
+                          val topped = first?.optString("topped_up_balance", "0.00")?.toDoubleOrNull() ?: 0.0
+                          val granted = first?.optString("granted_balance", "0.00")?.toDoubleOrNull() ?: 0.0
+
+                          handler.post {
+                              txtBalance.text = String.format("%s %.2f", sym, total)
+                              txtBalance.setTextColor(if (total &lt;= lowThreshold) Color.parseColor("#FB7185") else Color.WHITE)
+                              txtSubBalance.text = String.format("充: %s%.2f | 赠: %s%.2f", sym, topped, sym, granted)
+                          }
+                      } catch (e: Exception) {
+                          handler.post {
+                              txtSubBalance.text = "刷新失败: ${e.message?.take(16)}"
+                          }
+                      }
+                  }
+              }
+
+              private fun createForegroundNotification(content: String): Notification {
+                  val channelId = "deepseek_float_channel"
+                  val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                  if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
+                      nm.createNotificationChannel(NotificationChannel(channelId, "DeepSeek 悬浮窗服务", NotificationManager.IMPORTANCE_LOW))
+                      return Notification.Builder(this, channelId)
+                          .setContentTitle("DeepSeek 实时监控")
+                          .setContentText(content)
+                          .setSmallIcon(android.R.drawable.ic_dialog_info)
+                          .build()
+                  }
+                  @Suppress("DEPRECATION")
+                  return Notification.Builder(this)
+                      .setContentTitle("DeepSeek 实时监控")
+                      .setContentText(content)
+                      .setSmallIcon(android.R.drawable.ic_dialog_info)
+                      .build()
+              }
+
+              override fun onDestroy() {
+                  handler.removeCallbacks(tickRunnable)
+                  handler.removeCallbacks(balanceRunnable)
+                  if (::cardLayout.isInitialized) windowManager.removeView(cardLayout)
+                  if (::unlockPill.isInitialized) windowManager.removeView(unlockPill)
+                  super.onDestroy()
+              }
+
+              override fun onBind(intent: Intent?): IBinder? = null
+          }
+          EOF
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle 8.5
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.5'
+
+      - name: Build Debug APK
+        working-directory: ./android-kotlin-app
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: Upload Compiled APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: DeepSeek-FloatMonitor-Android-APK
+          path: android-kotlin-app/app/build/outputs/apk/debug/*.apk
+</pre>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // =========================================================================
+    // STATE & STORAGE HELPERS
+    // =========================================================================
+    const STORAGE_KEY = 'deepseek_android_float_monitor_v1';
+
+    const CN_HOLIDAYS_2026 = new Set([
+      '2026-01-01','2026-01-02','2026-01-03',
+      '2026-02-15','2026-02-16','2026-02-17','2026-02-18','2026-02-19','2026-02-20','2026-02-21','2026-02-22','2026-02-23',
+      '2026-04-04','2026-04-05','2026-04-06',
+      '2026-05-01','2026-05-02','2026-05-03','2026-05-04','2026-05-05',
+      '2026-06-19','2026-06-20','2026-06-21',
+      '2026-09-25','2026-09-26','2026-09-27',
+      '2026-10-01','2026-10-02','2026-10-03','2026-10-04','2026-10-05','2026-10-06','2026-10-07'
+    ]);
+
+    const state = {
+      apiKey: '',
+      refreshIntervalSec: 60,
+      lowThreshold: 20,
+      holidayMode: 'auto',
+      floatOpacity: 96,
+      enableAlerts: true,
+      isPinned: false,
+      showFloatingWindow: true,
+      isCollapsed: false,
+      isDemoMode: true,
+      balanceData: {
+        is_available: true,
+        currency: 'CNY',
+        total_balance: '110.00',
+        topped_up_balance: '100.00',
+        granted_balance: '10.00'
+      },
+      lastSyncTime: new Date(),
+      lastPeriodIsPeak: null,
+      lowBalanceAlerted: false,
+      refreshTimerId: null
+    };
+
+    function loadSavedState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (typeof parsed.apiKey === 'string') state.apiKey = parsed.apiKey;
+        if (parsed.refreshIntervalSec) state.refreshIntervalSec = Number(parsed.refreshIntervalSec) || 60;
+        if (parsed.lowThreshold !== undefined) state.lowThreshold = Number(parsed.lowThreshold);
+        if (parsed.holidayMode) state.holidayMode = parsed.holidayMode;
+        if (parsed.floatOpacity) state.floatOpacity = Number(parsed.floatOpacity) || 96;
+        if (typeof parsed.enableAlerts === 'boolean') state.enableAlerts = parsed.enableAlerts;
+        if (typeof parsed.isPinned === 'boolean') state.isPinned = parsed.isPinned;
+        if (typeof parsed.showFloatingWindow === 'boolean') state.showFloatingWindow = parsed.showFloatingWindow;
+        state.isDemoMode = !state.apiKey.trim();
+      } catch (err) {
+        // Ignore storage errors in sandboxed iframes
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          apiKey: state.apiKey,
+          refreshIntervalSec: state.refreshIntervalSec,
+          lowThreshold: state.lowThreshold,
+          holidayMode: state.holidayMode,
+          floatOpacity: state.floatOpacity,
+          enableAlerts: state.enableAlerts,
+          isPinned: state.isPinned,
+          showFloatingWindow: state.showFloatingWindow
+        }));
+      } catch (err) {
+        // Ignore storage errors
+      }
+    }
+
+    // =========================================================================
+    // TOAST & SOUND NOTIFICATION ENGINE
+    // =========================================================================
+    function showToast(title, message, type) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const el = document.createElement('div');
+      const colorMap = {
+        success: 'bg-emerald-950/95 border-emerald-500/50 text-emerald-200',
+        warn: 'bg-amber-950/95 border-amber-500/50 text-amber-200',
+        danger: 'bg-rose-950/95 border-rose-500/60 text-rose-200',
+        info: 'bg-slate-900/95 border-indigo-500/50 text-slate-200'
+      };
+      const cls = colorMap[type] || colorMap.info;
+      el.className = 'pointer-events-auto rounded-xl px-3.5 py-2.5 border shadow-xl backdrop-blur-md transition-all duration-300 ' + cls;
+      el.innerHTML = '<div class="text-xs font-bold">' + title + '</div><div class="text-[11px] opacity-90 mt-0.5">' + message + '</div>';
+      container.appendChild(el);
+      setTimeout(function() {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-8px)';
+        setTimeout(function() {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 300);
+      }, 3200);
+    }
+
+    function playAlertChime(kind) {
+      if (!state.enableAlerts) return;
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (kind === 'danger') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.setValueAtTime(440.0, now + 0.16);
+          gain.gain.setValueAtTime(0.18, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+          osc.start(now);
+          osc.stop(now + 0.42);
+        } else {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.14);
+          osc.frequency.setValueAtTime(783.99, now + 0.28);
+          gain.gain.setValueAtTime(0.16, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+          osc.start(now);
+          osc.stop(now + 0.5);
+        }
+      } catch (e) {
+        // Ignore audio restrictions before gesture
+      }
+    }
+
+    // =========================================================================
+    // DEEPSEEK OFFICIAL PEAK / OFF-PEAK CALCULATION (BEIJING TIME UTC+8)
+    // =========================================================================
+    function pad2(n) {
+      return n < 10 ? '0' + n : String(n);
+    }
+
+    function computePeakValleyInfo() {
+      const now = new Date();
+      const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
+      const bjt = new Date(utcMs + 8 * 3600000);
+
+      const year = bjt.getFullYear();
+      const month = pad2(bjt.getMonth() + 1);
+      const date = pad2(bjt.getDate());
+      const dateStr = year + '-' + month + '-' + date;
+      const dayOfWeek = bjt.getDay();
+      const hours = bjt.getHours();
+      const minutes = bjt.getMinutes();
+      const seconds = bjt.getSeconds();
+      const totalMinutes = hours * 60 + minutes;
+      const totalSeconds = totalMinutes * 60 + seconds;
+
+      let isOffDay = (dayOfWeek === 0 || dayOfWeek === 6 || CN_HOLIDAYS_2026.has(dateStr));
+      let dayTypeLabel = isOffDay
+        ? (CN_HOLIDAYS_2026.has(dateStr) ? '法定节假日 (全天半价)' : '周末休息日 (全天半价)')
+        : '工作日 (峰谷分时)';
+
+      if (state.holidayMode === 'holiday') {
+        isOffDay = true;
+        dayTypeLabel = '手动节假日 (全天半价)';
+      } else if (state.holidayMode === 'workday') {
+        isOffDay = false;
+        dayTypeLabel = '手动工作日 (峰谷分时)';
+      }
+
+      let isPeak = false;
+      let nextTargetSeconds = 0;
+      let nextHint = '';
+
+      if (!isOffDay) {
+        if (totalMinutes < 540) {
+          isPeak = false;
+          nextTargetSeconds = 540 * 60;
+          nextHint = '距 09:00 高峰计费还有';
+        } else if (totalMinutes < 720) {
+          isPeak = true;
+          nextTargetSeconds = 720 * 60;
+          nextHint = '距 12:00 午休半价还有';
+        } else if (totalMinutes < 840) {
+          isPeak = false;
+          nextTargetSeconds = 840 * 60;
+          nextHint = '距 14:00 下午高峰还有';
+        } else if (totalMinutes < 1080) {
+          isPeak = true;
+          nextTargetSeconds = 1080 * 60;
+          nextHint = '距 18:00 夜间半价还有';
+        } else {
+          isPeak = false;
+          const daysUntilNextWorkday = (state.holidayMode === 'auto' && dayOfWeek === 5) ? 3 : 1;
+          nextTargetSeconds = daysUntilNextWorkday * 86400 + 540 * 60;
+          nextHint = daysUntilNextWorkday > 1 ? '距下周一 09:00 高峰还有' : '距明日 09:00 高峰还有';
+        }
+      } else {
+        isPeak = false;
+        const daysToNextPeak = (dayOfWeek === 6) ? 2 : 1;
+        nextTargetSeconds = daysToNextPeak * 86400 + 540 * 60;
+        nextHint = '全天半价 · 距下个高峰还有';
+      }
+
+      const diffSec = Math.max(0, nextTargetSeconds - totalSeconds);
+      const rHours = Math.floor(diffSec / 3600);
+      const rMinutes = Math.floor((diffSec % 3600) / 60);
+      const rSeconds = diffSec % 60;
+
+      return {
+        isPeak: isPeak,
+        dayTypeLabel: dayTypeLabel,
+        nextHint: nextHint,
+        countdownStr: pad2(rHours) + ':' + pad2(rMinutes) + ':' + pad2(rSeconds),
+        bjtClockStr: pad2(hours) + ':' + pad2(minutes) + ':' + pad2(seconds),
+        dateStr: dateStr,
+        dayProgressPct: ((totalSeconds / 86400) * 100).toFixed(2)
+      };
+    }
+
+    // =========================================================================
+    // DEEPSEEK BALANCE API QUERY & DEMO FALLBACK
+    // =========================================================================
+    async function fetchDeepSeekBalance(isManual) {
+      const icon = document.getElementById('floatRefreshIcon');
+      if (icon) icon.classList.add('animate-spin');
+      const errBanner = document.getElementById('apiErrorBanner');
+      if (errBanner) errBanner.classList.add('hidden');
+
+      const key = state.apiKey.replace(/[^\x21-\x7E]/g, '').trim();
+      if (!key) {
+        state.isDemoMode = true;
+        state.lastSyncTime = new Date();
+        if (icon) setTimeout(function() { icon.classList.remove('animate-spin'); }, 300);
+        if (isManual) {
+          showToast('已刷新演示余额', '填入 DeepSeek API Key 后即可实时拉取您的真实账户余额', 'info');
+        }
+        renderAll();
+        return;
+      }
+
+      state.isDemoMode = false;
+      try {
+        const res = await fetch('https://api.deepseek.com/user/balance', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + key
+          }
+        });
+        if (!res.ok) {
+          throw new Error('HTTP ' + res.status + '（请检查 API Key 是否有效）');
+        }
+        const data = await res.json();
+        const info = (data.balance_infos && data.balance_infos[0]) || {
+          currency: 'CNY',
+          total_balance: '0.00',
+          topped_up_balance: '0.00',
+          granted_balance: '0.00'
+        };
+        state.balanceData = {
+          is_available: Boolean(data.is_available),
+          currency: info.currency || 'CNY',
+          total_balance: info.total_balance || '0.00',
+          topped_up_balance: info.topped_up_balance || '0.00',
+          granted_balance: info.granted_balance || '0.00'
+        };
+        state.lastSyncTime = new Date();
+        if (isManual) {
+          showToast('余额同步成功', '当前可用总额: ' + formatMoney(state.balanceData.total_balance, state.balanceData.currency), 'success');
+        }
+      } catch (err) {
+        if (errBanner) {
+          errBanner.textContent = '接口请求失败: ' + err.message;
+          errBanner.classList.remove('hidden');
+        }
+        showToast('API 查询失败', err.message, 'danger');
+      } finally {
+        if (icon) icon.classList.remove('animate-spin');
+        checkBalanceThresholdAlert();
+        renderAll();
+      }
+    }
+
+    function formatMoney(amountStr, currency) {
+      const sym = currency === 'USD' ? '$' : '¥';
+      const num = parseFloat(amountStr);
+      return sym + (isNaN(num) ? '0.00' : num.toFixed(2));
+    }
+
+    function checkBalanceThresholdAlert() {
+      const totalNum = parseFloat(state.balanceData.total_balance) || 0;
+      if (totalNum <= state.lowThreshold) {
+        if (!state.lowBalanceAlerted) {
+          state.lowBalanceAlerted = true;
+          playAlertChime('danger');
+          showToast(
+            '⚠️ 余额低于预警阈值',
+            '当前总余额 ' + formatMoney(state.balanceData.total_balance, state.balanceData.currency) + ' 已低于设定的 ¥' + state.lowThreshold,
+            'danger'
+          );
+        }
+      } else {
+        state.lowBalanceAlerted = false;
+      }
+    }
+
+    // =========================================================================
+    // CANVAS PICTURE-IN-PICTURE (SYSTEM ANDROID FLOATING WINDOW) RENDERER
+    // =========================================================================
+    function drawPiPCanvas(pv) {
+      const canvas = document.getElementById('pipCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      if (pv.isPeak) {
+        grad.addColorStop(0, '#450a0a');
+        grad.addColorStop(1, '#1e1b4b');
+      } else {
+        grad.addColorStop(0, '#062c24');
+        grad.addColorStop(1, '#0f172a');
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      const totalNum = parseFloat(state.balanceData.total_balance) || 0;
+      const isLow = totalNum <= state.lowThreshold;
+      ctx.strokeStyle = isLow ? '#f43f5e' : (pv.isPeak ? '#ef4444' : '#10b981');
+      ctx.lineWidth = 6;
+      ctx.strokeRect(3, 3, w - 6, h - 6);
+
+      ctx.fillStyle = pv.isPeak ? 'rgba(239, 68, 68, 0.25)' : 'rgba(16, 185, 129, 0.22)';
+      ctx.fillRect(20, 18, 225, 36);
+      ctx.fillStyle = pv.isPeak ? '#fca5a5' : '#6ee7b7';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText(pv.isPeak ? '🔴 高峰时段 · 全价' : '🟢 空闲时段 · 5折半价', 30, 43);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '16px monospace';
+      ctx.textAlign = 'right';
+      ctx.fillText('北京时间 ' + pv.bjtClockStr, w - 20, 42);
+      ctx.textAlign = 'left';
+
+      ctx.fillStyle = isLow ? '#fda4af' : '#ffffff';
+      ctx.font = 'bold 48px monospace';
+      ctx.fillText(formatMoney(state.balanceData.total_balance, state.balanceData.currency), 20, 112);
+
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '18px sans-serif';
+      const subText = '充值 ' + formatMoney(state.balanceData.topped_up_balance, state.balanceData.currency) +
+                      '   |   赠金 ' + formatMoney(state.balanceData.granted_balance, state.balanceData.currency);
+      ctx.fillText(subText, 22, 145);
+
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.78)';
+      ctx.fillRect(20, 162, w - 40, 42);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '18px sans-serif';
+      ctx.fillText(pv.nextHint, 32, 189);
+
+      ctx.fillStyle = pv.isPeak ? '#fca5a5' : '#5eead4';
+      ctx.font = 'bold 24px monospace';
+      ctx.textAlign = 'right';
+      ctx.fillText(pv.countdownStr, w - 32, 191);
+      ctx.textAlign = 'left';
+    }
+
+    async function launchAndroidPiP() {
+      const canvas = document.getElementById('pipCanvas');
+      const video = document.getElementById('pipVideo');
+      if (!canvas || !video) return;
+
+      try {
+        drawPiPCanvas(computePeakValleyInfo());
+        if (!video.srcObject && canvas.captureStream) {
+          video.srcObject = canvas.captureStream(5);
+        }
+        await video.play();
+        if (document.pictureInPictureElement) {
+          await document.exitPictureInPicture();
+          return;
+        }
+        if (video.requestPictureInPicture) {
+          await video.requestPictureInPicture();
+          const badge = document.getElementById('pipStatusBadge');
+          if (badge) {
+            badge.textContent = '系统悬浮窗运行中';
+            badge.className = 'px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+          }
+          showToast('系统画中画悬浮窗已启动', '切回安卓手机桌面或其他 App 后监控小窗将持续置顶显示', 'success');
+        } else {
+          showToast('当前环境不支持视频画中画', '请使用右上角悬浮窗，或在手机 Chrome 浏览器中打开', 'warn');
+        }
+      } catch (err) {
+        showToast('画中画启动提示', '当前预览沙箱限制了跨应用弹窗，在手机浏览器打开即可一键置顶悬浮', 'info');
+      }
+    }
+
+    // =========================================================================
+    // UI RENDERING
+    // =========================================================================
+    function renderAll() {
+      const pv = computePeakValleyInfo();
+
+      if (state.lastPeriodIsPeak !== null && state.lastPeriodIsPeak !== pv.isPeak) {
+        playAlertChime('info');
+        showToast(
+          pv.isPeak ? '🔴 已进入高峰计费时段' : '🟢 已进入空闲 5 折半价时段!',
+          pv.isPeak ? '当前调用按标准价格计费' : '当前所有模型输入/输出均享半价优惠',
+          pv.isPeak ? 'danger' : 'success'
+        );
+      }
+      state.lastPeriodIsPeak = pv.isPeak;
+
+      const cur = state.balanceData.currency;
+      const totalStr = formatMoney(state.balanceData.total_balance, cur);
+      const topStr = formatMoney(state.balanceData.topped_up_balance, cur);
+      const grantStr = formatMoney(state.balanceData.granted_balance, cur);
+      const totalNum = parseFloat(state.balanceData.total_balance) || 0;
+      const isLow = totalNum <= state.lowThreshold;
+
+      // 1. Floating Widget visibility & automatic click-through when pinned
+      const floatWidget = document.getElementById('floatingWidget');
+      if (floatWidget) {
+        floatWidget.style.opacity = (state.floatOpacity / 100).toFixed(2);
+        floatWidget.classList.toggle('hidden', !state.showFloatingWindow);
+        floatWidget.classList.toggle('pinned-passthrough', state.isPinned);
+      }
+
+      const capsuleView = document.getElementById('floatCapsuleView');
+      const cardView = document.getElementById('floatCardView');
+      if (capsuleView && cardView) {
+        capsuleView.classList.toggle('hidden', !state.isCollapsed);
+        cardView.classList.toggle('hidden', state.isCollapsed);
+      }
+
+      // Dim non-unlock buttons inside floating window when pinned
+      const otherBtns = document.querySelectorAll('.float-other-action');
+      otherBtns.forEach(function(btn) {
+        btn.style.opacity = state.isPinned ? '0.32' : '1';
+      });
+
+      // Status dots
+      const dotClass = (isLow || pv.isPeak)
+        ? 'w-2.5 h-2.5 rounded-full bg-red-500 pulse-ring-red shrink-0'
+        : 'w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-ring-green shrink-0';
+      document.getElementById('capsuleDot').className = dotClass;
+      document.getElementById('floatStatusDot').className = dotClass;
+
+      // Capsule texts
+      const capsulePeriodTag = document.getElementById('capsulePeriodTag');
+      capsulePeriodTag.textContent = pv.isPeak ? '高峰全价' : '空闲5折';
+      capsulePeriodTag.className = pv.isPeak
+        ? 'px-1.5 py-0.5 rounded text-[11px] font-semibold bg-red-500/25 text-red-300 border border-red-500/40'
+        : 'px-1.5 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+      document.getElementById('capsuleCountdown').textContent = pv.countdownStr;
+
+      const capsuleBalance = document.getElementById('capsuleBalance');
+      capsuleBalance.textContent = totalStr;
+      capsuleBalance.className = isLow ? 'font-mono-num text-rose-400 font-bold' : 'font-mono-num text-sky-300 font-bold';
+
+      // Expanded Float Card texts
+      const floatModeBadge = document.getElementById('floatModeBadge');
+      floatModeBadge.textContent = state.isDemoMode ? '演示' : '实盘';
+      floatModeBadge.className = state.isDemoMode
+        ? 'text-[10px] leading-none px-1.5 py-1 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30 font-semibold shrink-0'
+        : 'text-[10px] leading-none px-1.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold shrink-0';
+
+      document.getElementById('floatLowAlertBadge').classList.toggle('hidden', !isLow);
+
+      const floatTotalBalance = document.getElementById('floatTotalBalance');
+      floatTotalBalance.textContent = totalStr;
+      floatTotalBalance.className = isLow
+        ? 'text-2xl font-bold font-mono-num text-rose-400 tracking-tight mt-0.5'
+        : 'text-2xl font-bold font-mono-num text-white tracking-tight mt-0.5';
+      document.getElementById('floatToppedUp').textContent = topStr;
+      document.getElementById('floatGranted').textContent = grantStr;
+
+      document.getElementById('floatPeriodBox').className = pv.isPeak
+        ? 'rounded-xl p-3 bg-red-950/45 border border-red-500/40 flex items-center justify-between gap-2'
+        : 'rounded-xl p-3 bg-emerald-950/40 border border-emerald-500/30 flex items-center justify-between gap-2';
+
+      const floatPeriodBadge = document.getElementById('floatPeriodBadge');
+      floatPeriodBadge.textContent = pv.isPeak ? '🔴 高峰时段 · 标准价' : '🟢 空闲时段 · 5折半价';
+      floatPeriodBadge.className = pv.isPeak ? 'text-xs font-bold text-red-400' : 'text-xs font-bold text-emerald-300';
+
+      document.getElementById('floatNextRuleHint').textContent = pv.nextHint;
+
+      const floatCountdown = document.getElementById('floatCountdown');
+      floatCountdown.textContent = pv.countdownStr;
+      floatCountdown.className = pv.isPeak
+        ? 'text-base font-bold font-mono-num text-red-300'
+        : 'text-base font-bold font-mono-num text-emerald-200';
+      document.getElementById('floatBjtClock').textContent = '北京时间 ' + pv.bjtClockStr;
+
+      const diffS = Math.max(0, Math.floor((Date.now() - state.lastSyncTime.getTime()) / 1000));
+      document.getElementById('floatLastSync').textContent = diffS < 5 ? '上次更新: 刚刚' : ('上次更新: ' + diffS + '秒前');
+
+      // Pin & Click-Through visual state
+      document.getElementById('floatPinIcon').textContent = state.isPinned ? '📌' : '🔓';
+      document.getElementById('floatPinText').textContent = state.isPinned ? '解锁' : '固定';
+      document.getElementById('btnFloatPin').className = state.isPinned
+        ? 'unlock-only-interactive float-icon-btn bg-indigo-500/35 text-indigo-200 border border-indigo-400/60 gap-0.5 shadow-sm'
+        : 'unlock-only-interactive float-icon-btn hover:bg-slate-800 text-slate-300 border border-transparent gap-0.5';
+
+      document.getElementById('capsulePinIcon').textContent = state.isPinned ? '📌' : '🔓';
+      document.getElementById('capsulePinText').textContent = state.isPinned ? '解锁' : '固定';
+      document.getElementById('btnCapsulePin').className = state.isPinned
+        ? 'unlock-only-interactive h-6 px-2 rounded-full inline-flex items-center justify-center gap-0.5 bg-indigo-500/35 text-indigo-200 border border-indigo-400/60 active:scale-90 transition'
+        : 'unlock-only-interactive h-6 px-2 rounded-full inline-flex items-center justify-center gap-0.5 hover:bg-slate-700/70 text-slate-300 active:scale-90 transition';
+
+      const floatDragHint = document.getElementById('floatDragHint');
+      floatDragHint.textContent = state.isPinned ? '📌 已固定穿透 · 仅解锁可点' : '按住任意处可拖动';
+      floatDragHint.className = state.isPinned ? 'text-indigo-300 font-semibold' : 'text-slate-400';
+
+      document.getElementById('swMainPinFloat').checked = state.isPinned;
+      const swMainPinLabel = document.getElementById('swMainPinLabel');
+      swMainPinLabel.textContent = state.isPinned ? '📌 固定并穿透: 开' : '🔓 固定并穿透: 关';
+      swMainPinLabel.className = state.isPinned ? 'text-xs font-bold text-indigo-300' : 'text-xs font-bold text-slate-200';
+
+      const pinStatusIconBox = document.getElementById('pinStatusIconBox');
+      pinStatusIconBox.textContent = state.isPinned ? '📌' : '🔓';
+      pinStatusIconBox.className = state.isPinned
+        ? 'w-10 h-10 rounded-xl bg-indigo-500/25 border border-indigo-500/50 flex items-center justify-center text-base shrink-0'
+        : 'w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-base shrink-0';
+
+      const pinMainStatusBadge = document.getElementById('pinMainStatusBadge');
+      pinMainStatusBadge.textContent = state.isPinned ? '已固定 + 点击穿透 (仅解锁可点)' : '当前可自由拖动';
+      pinMainStatusBadge.className = state.isPinned
+        ? 'px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-500/25 text-indigo-300 border border-indigo-500/40'
+        : 'px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-800 text-slate-300 border border-slate-700';
+
+      document.getElementById('swShowFloatWindow').checked = state.showFloatingWindow;
+
+      // 2. Main Dashboard updates
+      const mainPeriodBadge = document.getElementById('mainPeriodBadge');
+      mainPeriodBadge.textContent = pv.isPeak ? '🔴 高峰时段（标准计费）' : '🟢 空闲时段（全模型 5 折半价）';
+      mainPeriodBadge.className = pv.isPeak
+        ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-red-500/25 text-red-300 border border-red-500/40'
+        : 'px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+
+      document.getElementById('mainDayTypeBadge').textContent = pv.dayTypeLabel;
+      document.getElementById('mainNextTransitionLabel').textContent = pv.nextHint;
+
+      const mainCountdown = document.getElementById('mainCountdown');
+      mainCountdown.textContent = pv.countdownStr;
+      mainCountdown.className = pv.isPeak
+        ? 'text-2xl font-bold font-mono-num text-red-400 tracking-tight'
+        : 'text-2xl font-bold font-mono-num text-emerald-300 tracking-tight';
+
+      document.getElementById('timelineCursor').style.left = pv.dayProgressPct + '%';
+      document.getElementById('mainBjtText').textContent = '北京时间: ' + pv.dateStr + ' ' + pv.bjtClockStr;
+
+      document.getElementById('cardTotalBalance').textContent = totalStr;
+      document.getElementById('cardToppedUpBalance').textContent = topStr;
+      document.getElementById('cardGrantedBalance').textContent = grantStr;
+
+      const accountAvailTag = document.getElementById('accountAvailTag');
+      accountAvailTag.textContent = state.balanceData.is_available
+        ? 'API 可用 (is_available: true)'
+        : '余额不足 (is_available: false)';
+      accountAvailTag.className = state.balanceData.is_available
+        ? 'px-2 py-0.5 text-[11px] font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+        : 'px-2 py-0.5 text-[11px] font-semibold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30';
+
+      drawPiPCanvas(pv);
+    }
+
+    // =========================================================================
+    // TOUCH & MOUSE DRAGGING FOR FLOATING WIDGET
+    // =========================================================================
+    function initDraggableFloatingWidget() {
+      const widget = document.getElementById('floatingWidget');
+      if (!widget) return;
+
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+      let initialLeft = 0;
+      let initialTop = 0;
+
+      function onPointerDown(e) {
+        if (state.isPinned) return;
+        const target = e.target;
+        if (target && target.closest('button')) return;
+        const point = e.touches ? e.touches[0] : e;
+        const rect = widget.getBoundingClientRect();
+        isDragging = true;
+        startX = point.clientX;
+        startY = point.clientY;
+        initialLeft = rect.left;
+        initialTop = rect.top;
+        widget.style.right = 'auto';
+        widget.style.left = initialLeft + 'px';
+        widget.style.top = initialTop + 'px';
+        widget.classList.add('dragging');
+      }
+
+      function onPointerMove(e) {
+        if (!isDragging) return;
+        if (e.cancelable) e.preventDefault();
+        const point = e.touches ? e.touches[0] : e;
+        const dx = point.clientX - startX;
+        const dy = point.clientY - startY;
+        const maxLeft = Math.max(8, window.innerWidth - widget.offsetWidth - 8);
+        const maxTop = Math.max(8, window.innerHeight - widget.offsetHeight - 8);
+        widget.style.left = Math.min(maxLeft, Math.max(8, initialLeft + dx)) + 'px';
+        widget.style.top = Math.min(maxTop, Math.max(8, initialTop + dy)) + 'px';
+      }
+
+      function onPointerUp() {
+        if (!isDragging) return;
+        isDragging = false;
+        widget.classList.remove('dragging');
+      }
+
+      widget.addEventListener('mousedown', onPointerDown);
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      widget.addEventListener('touchstart', onPointerDown, { passive: true });
+      window.addEventListener('touchmove', onPointerMove, { passive: false });
+      window.addEventListener('touchend', onPointerUp);
+    }
+
+    function scheduleAutoRefresh() {
+      if (state.refreshTimerId) {
+        clearInterval(state.refreshTimerId);
+      }
+      state.refreshTimerId = setInterval(function() {
+        fetchDeepSeekBalance(false);
+      }, state.refreshIntervalSec * 1000);
+    }
+
+    // =========================================================================
+    // INITIALIZE CONTROLS & EVENT LISTENERS
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', function() {
+      loadSavedState();
+      initDraggableFloatingWidget();
+
+      const inputApiKey = document.getElementById('inputApiKey');
+      const selectRefresh = document.getElementById('selectRefreshInterval');
+      const inputThreshold = document.getElementById('inputLowThreshold');
+      const selectHoliday = document.getElementById('selectHolidayMode');
+      const rangeOpacity = document.getElementById('rangeFloatOpacity');
+      const labelOpacity = document.getElementById('labelOpacityVal');
+      const chkAlert = document.getElementById('chkTransitionAlert');
+
+      inputApiKey.value = state.apiKey;
+      selectRefresh.value = String(state.refreshIntervalSec);
+      inputThreshold.value = String(state.lowThreshold);
+      selectHoliday.value = state.holidayMode;
+      rangeOpacity.value = String(state.floatOpacity);
+      labelOpacity.textContent = state.floatOpacity + '%';
+      chkAlert.checked = state.enableAlerts;
+
+      function setPinned(val, customMsg) {
+        state.isPinned = Boolean(val);
+        saveState();
+        renderAll();
+        showToast(
+          state.isPinned ? '📌 悬浮窗已固定并开启点击穿透' : '🔓 悬浮窗已解锁',
+          customMsg || (state.isPinned ? '下方区域可直接点击穿透，仅保留悬浮窗上的「解锁」按钮可点' : '已恢复常规交互，可任意拖动悬浮窗'),
+          'info'
+        );
+      }
+
+      function togglePinState() {
+        setPinned(!state.isPinned);
+      }
+
+      document.getElementById('btnFloatPin').addEventListener('click', togglePinState);
+      document.getElementById('btnCapsulePin').addEventListener('click', togglePinState);
+      document.getElementById('swMainPinFloat').addEventListener('change', function() {
+        setPinned(this.checked);
+      });
+
+      document.getElementById('swShowFloatWindow').addEventListener('change', function() {
+        state.showFloatingWindow = this.checked;
+        saveState();
+        renderAll();
+        showToast(
+          state.showFloatingWindow ? '已显示悬浮窗' : '已隐藏页内悬浮窗',
+          state.showFloatingWindow ? '悬浮窗已恢复常驻显示' : '可随时通过此开关重新唤出悬浮窗',
+          'info'
+        );
+      });
+
+      function dockAndPin(posMode) {
+        const widget = document.getElementById('floatingWidget');
+        state.showFloatingWindow = true;
+        if (posMode === 'topLeft') {
+          state.isCollapsed = false;
+          widget.style.right = 'auto';
+          widget.style.left = '12px';
+          widget.style.top = '12px';
+          setPinned(true, '已固定至左上角并开启点击穿透（仅解锁可点）');
+        } else if (posMode === 'topCenter') {
+          state.isCollapsed = false;
+          widget.style.right = 'auto';
+          widget.style.left = Math.max(8, Math.round((window.innerWidth - 310) / 2)) + 'px';
+          widget.style.top = '12px';
+          setPinned(true, '已固定至顶部居中并开启点击穿透（仅解锁可点）');
+        } else if (posMode === 'topRight') {
+          state.isCollapsed = false;
+          widget.style.left = 'auto';
+          widget.style.right = '12px';
+          widget.style.top = '12px';
+          setPinned(true, '已固定至右上角并开启点击穿透（仅解锁可点）');
+        } else if (posMode === 'capsuleTop') {
+          state.isCollapsed = true;
+          widget.style.right = 'auto';
+          widget.style.left = Math.max(8, Math.round((window.innerWidth - 240) / 2)) + 'px';
+          widget.style.top = '10px';
+          setPinned(true, '已切换为灵动胶囊固定在顶部并开启穿透（仅解锁可点）');
+        }
+      }
+
+      document.getElementById('btnDockTopLeft').addEventListener('click', function() { dockAndPin('topLeft'); });
+      document.getElementById('btnDockTopCenter').addEventListener('click', function() { dockAndPin('topCenter'); });
+      document.getElementById('btnDockTopRight').addEventListener('click', function() { dockAndPin('topRight'); });
+      document.getElementById('btnDockCapsuleTop').addEventListener('click', function() { dockAndPin('capsuleTop'); });
+
+      // Floating window actions
+      document.getElementById('btnCollapseFloat').addEventListener('click', function() {
+        state.isCollapsed = true;
+        renderAll();
+      });
+      document.getElementById('btnExpandFloat').addEventListener('click', function() {
+        state.isCollapsed = false;
+        renderAll();
+      });
+      document.getElementById('btnFloatRefresh').addEventListener('click', function() {
+        fetchDeepSeekBalance(true);
+      });
+      document.getElementById('btnFloatPiP').addEventListener('click', launchAndroidPiP);
+      document.getElementById('btnLaunchSystemPiP').addEventListener('click', launchAndroidPiP);
+      document.getElementById('btnResetFloatPos').addEventListener('click', function() {
+        const widget = document.getElementById('floatingWidget');
+        widget.style.left = 'auto';
+        widget.style.right = '16px';
+        widget.style.top = '16px';
+        state.showFloatingWindow = true;
+        state.isCollapsed = false;
+        state.isPinned = false;
+        saveState();
+        renderAll();
+        showToast('悬浮窗已归位并解锁', '已恢复至右上角默认位置并解除锁定', 'info');
+      });
+
+      // Tab navigation
+      const tabButtons = document.querySelectorAll('.tab-nav-btn');
+      tabButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const targetTab = btn.getAttribute('data-tab');
+          tabButtons.forEach(function(b) {
+            b.className = 'tab-nav-btn btn-base w-full text-slate-400 hover:text-slate-200';
+          });
+          btn.className = 'tab-nav-btn btn-base w-full bg-indigo-600 text-white shadow';
+
+          document.getElementById('tabPanelMonitor').classList.toggle('hidden', targetTab !== 'monitor');
+          document.getElementById('tabPanelPricing').classList.toggle('hidden', targetTab !== 'pricing');
+          document.getElementById('tabPanelAndroid').classList.toggle('hidden', targetTab !== 'android');
+        });
+      });
+
+      // Balance & Simulation Controls
+      document.getElementById('btnManualRefresh').addEventListener('click', function() {
+        fetchDeepSeekBalance(true);
+      });
+      document.getElementById('btnSimulateSpend').addEventListener('click', function() {
+        let granted = parseFloat(state.balanceData.granted_balance) || 0;
+        let topped = parseFloat(state.balanceData.topped_up_balance) || 0;
+        const spend = 18.5;
+        if (granted >= spend) {
+          granted -= spend;
+        } else {
+          topped = Math.max(0, topped - (spend - granted));
+          granted = 0;
+        }
+        const total = granted + topped;
+        state.balanceData.granted_balance = granted.toFixed(2);
+        state.balanceData.topped_up_balance = topped.toFixed(2);
+        state.balanceData.total_balance = total.toFixed(2);
+        state.balanceData.is_available = total > 0;
+        state.lastSyncTime = new Date();
+        checkBalanceThresholdAlert();
+        renderAll();
+        showToast('已模拟调用扣费 ¥18.50', '按官方规则优先扣减赠金，当前剩余总额 ¥' + total.toFixed(2), 'info');
+      });
+
+      // Settings Controls
+      document.getElementById('btnToggleKeyVis').addEventListener('click', function() {
+        const isPwd = inputApiKey.type === 'password';
+        inputApiKey.type = isPwd ? 'text' : 'password';
+        this.textContent = isPwd ? '隐藏' : '显示';
+      });
+      document.getElementById('btnSaveApiKey').addEventListener('click', function() {
+        state.apiKey = inputApiKey.value.trim();
+        saveState();
+        fetchDeepSeekBalance(true);
+      });
+      selectRefresh.addEventListener('change', function() {
+        state.refreshIntervalSec = Number(this.value) || 60;
+        saveState();
+        scheduleAutoRefresh();
+        showToast('刷新频率已更新', '将每 ' + state.refreshIntervalSec + ' 秒自动同步一次余额', 'info');
+      });
+      inputThreshold.addEventListener('input', function() {
+        state.lowThreshold = Number(this.value) || 0;
+        state.lowBalanceAlerted = false;
+        saveState();
+        checkBalanceThresholdAlert();
+        renderAll();
+      });
+      selectHoliday.addEventListener('change', function() {
+        state.holidayMode = this.value;
+        saveState();
+        renderAll();
+      });
+      rangeOpacity.addEventListener('input', function() {
+        state.floatOpacity = Number(this.value) || 96;
+        labelOpacity.textContent = state.floatOpacity + '%';
+        saveState();
+        renderAll();
+      });
+      chkAlert.addEventListener('change', function() {
+        state.enableAlerts = this.checked;
+        saveState();
+      });
+      document.getElementById('btnTestAlertSound').addEventListener('click', function() {
+        playAlertChime('info');
+        showToast('🔔 提醒测试成功', '峰谷切换或余额低于阈值时将触发此音效与悬浮窗高亮闪烁', 'success');
+      });
+
+      document.getElementById('btnToggleGhTokenVis').addEventListener('click', function() {
+        const ghInput = document.getElementById('inputGhToken');
+        const isPwd = ghInput.type === 'password';
+        ghInput.type = isPwd ? 'text' : 'password';
+        this.textContent = isPwd ? '隐藏' : '显示';
+      });
+
+      // GitHub One-Click Mobile Push button (sanitizes keys before pushing)
+      document.getElementById('btnPushToGithub').addEventListener('click', async function() {
+        const repoInput = (document.getElementById('inputGhRepo').value || '').replace(/[^\x21-\x7E]/g, '').trim().replace(/^https?:\/\/github\.com\//i, '').replace(/\/+$/, '');
+        const branch = (document.getElementById('inputGhBranch').value || 'main').replace(/[^\x21-\x7E]/g, '').trim() || 'main';
+        const rawTokenInput = (document.getElementById('inputGhToken').value || '').trim();
+        const statusBox = document.getElementById('ghPushStatusBox');
+
+        // Extract valid GitHub token if surrounded by accidental text, or strip non-ASCII characters
+        const tokenMatch = rawTokenInput.match(/(?:gh[pousr]_|github_pat_)[A-Za-z0-9_]+/);
+        const token = tokenMatch ? tokenMatch[0] : rawTokenInput.replace(/[^\x21-\x7E]/g, '');
+
+        if (!repoInput || repoInput.indexOf('/') === -1) {
+          showToast('仓库格式有误', '请填写「用户名/仓库名」，例如 Cecilia-Sen/deepseek-float-monitor', 'warn');
+          return;
+        }
+        if (!rawTokenInput) {
+          showToast('缺少 GitHub Token', '请填入以 ghp_ 或 github_pat_ 开头的 GitHub Token', 'warn');
+          return;
+        }
+        if (/[^\x20-\x7E]/.test(rawTokenInput) && !tokenMatch) {
+          statusBox.classList.remove('hidden');
+          statusBox.textContent = '⚠️ 检测到 Token 输入框内粘贴了中文或非 Token 内容（点输入框右侧「显示」可查看）。刚才点击复制按钮会覆盖手机剪贴板，请重新复制以 ghp_ 开头的 GitHub Token 粘贴进来，或直接使用下方免 Token 复制 build-apk.yml 方式！';
+          showToast('Token 框内误粘贴了中文内容', '请点 Token 框右侧「显示」检查，重新粘贴 ghp_ 开头的 Token', 'danger');
+          return;
+        }
+        if (!token) {
+          showToast('Token 格式无效', '请填入纯英文数字的 GitHub Personal Access Token (ghp_...)', 'warn');
+          return;
+        }
+
+        statusBox.classList.remove('hidden');
+        statusBox.textContent = '⏳ 正在连接 GitHub API 并推送工程文件...';
+        this.disabled = true;
+
+        // Clone DOM and clear sensitive inputs so keys are never leaked to GitHub
+        const clonedDoc = document.documentElement.cloneNode(true);
+        const sensitiveIds = ['inputApiKey', 'inputGhToken', 'toastContainer', 'ghPushStatusBox'];
+        sensitiveIds.forEach(function(id) {
+          const el = clonedDoc.querySelector('#' + id);
+          if (!el) return;
+          if (el.tagName === 'INPUT') {
+            el.value = '';
+            el.removeAttribute('value');
+          } else {
+            el.innerHTML = '';
+          }
+        });
+
+        const filesToPush = [
+          {
+            path: 'README.md',
+            content: '# DeepSeek Android Floating Monitor\n\nReal-time DeepSeek balance and peak/off-peak floating window monitor for Android.'
+          },
+          {
+            path: 'autojs/deepseek_floaty_autojs.js',
+            content: document.getElementById('codeAutoJsBlock').innerText
+          },
+          {
+            path: '.github/workflows/build-apk.yml',
+            content: document.getElementById('codeWorkflowBlock').innerText
+          },
+          {
+            path: 'index.html',
+            content: '<!DOCTYPE html>\n' + clonedDoc.outerHTML
+          }
+        ];
+
+        try {
+          for (let i = 0; i < filesToPush.length; i++) {
+            const item = filesToPush[i];
+            statusBox.textContent = '⏳ 正在上传 (' + (i + 1) + '/' + filesToPush.length + '): ' + item.path + ' ...';
+            const apiUrl = 'https://api.github.com/repos/' + repoInput + '/contents/' + item.path;
+            let sha = undefined;
+            const checkRes = await fetch(apiUrl + '?ref=' + encodeURIComponent(branch), {
+              headers: {
+                'Authorization': 'Bearer ' + token,
+                'Accept': 'application/vnd.github+json'
+              }
+            });
+            if (checkRes.ok) {
+              const existing = await checkRes.json();
+              sha = existing.sha;
+            }
+            const b64 = btoa(unescape(encodeURIComponent(item.content)));
+            const bodyObj = {
+              message: 'Update ' + item.path + ' from Android mobile tool',
+              content: b64,
+              branch: branch
+            };
+            if (sha) bodyObj.sha = sha;
+
+            const putRes = await fetch(apiUrl, {
+              method: 'PUT',
+              headers: {
+                'Authorization': 'Bearer ' + token,
+                'Accept': 'application/vnd.github+json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(bodyObj)
+            });
+            if (!putRes.ok) {
+              const errJson = await putRes.json().catch(function() { return {}; });
+              throw new Error(item.path + ' 上传失败 (HTTP ' + putRes.status + '): ' + (errJson.message || '请检查仓库是否存在且已初始化、Token 是否有 repo 权限'));
+            }
+          }
+          statusBox.textContent = '✅ 推送成功！已将脱敏后的 index.html 与安卓脚本上传至 https://github.com/' + repoInput;
+          showToast('GitHub 推送成功', '文件已全部安全上传至 ' + repoInput, 'success');
+        } catch (err) {
+          statusBox.textContent = '❌ ' + err.message;
+          showToast('推送失败', err.message, 'danger');
+        } finally {
+          this.disabled = false;
+        }
+      });
+
+      // Quick copy buttons for GitHub Mobile New Repository form
+      function copyTextWithToast(text, label) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            showToast('已复制' + label, text, 'success');
+          }).catch(function() {
+            fallbackCopy(text);
+          });
+        } else {
+          fallbackCopy(text);
+        }
+      }
+      document.getElementById('btnCopyRepoName').addEventListener('click', function() {
+        copyTextWithToast('deepseek-float-monitor', '仓库名称');
+      });
+      document.getElementById('btnCopyRepoDesc').addEventListener('click', function() {
+        copyTextWithToast('DeepSeek 余额与峰谷时段实时监控悬浮窗 (Android 专版)', '仓库描述');
+      });
+      document.getElementById('btnCopyWorkflowYml').addEventListener('click', function() {
+        copyTextWithToast(document.getElementById('codeWorkflowBlock').innerText, ' build-apk.yml 工作流');
+      });
+
+      // Copy Auto.js script button
+      document.getElementById('btnCopyAutoJs').addEventListener('click', function() {
+        const codeText = document.getElementById('codeAutoJsBlock').innerText;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(codeText).then(function() {
+            showToast('复制成功', '请粘贴到手机端 AutoX.js / Auto.js 中运行原生悬浮窗', 'success');
+          }).catch(function() {
+            fallbackCopy(codeText);
+          });
+        } else {
+          fallbackCopy(codeText);
+        }
+      });
+
+      function fallbackCopy(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast('复制成功', '请粘贴到手机端 AutoX.js / Auto.js 中运行原生悬浮窗', 'success');
+        } catch (e) {
+          showToast('请手动长按复制', '已为您展开完整源码', 'info');
+        }
+        document.body.removeChild(ta);
+      }
+
+      renderAll();
+      fetchDeepSeekBalance(false);
+      scheduleAutoRefresh();
+      setInterval(renderAll, 1000);
+    });
+  </script>
+
+</body></html>
