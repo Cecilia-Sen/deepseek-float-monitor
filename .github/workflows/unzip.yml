@@ -1,0 +1,16 @@
+name: Unzip
+on: workflow_dispatch
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: unzip -o deepseek_android_floating_app.zip -d ./
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "unzip" || exit 0
+          git push
