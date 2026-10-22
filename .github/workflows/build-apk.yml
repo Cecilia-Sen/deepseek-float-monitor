@@ -3,25 +3,630 @@ on:
   workflow_dispatch:
 jobs:
   build-apk:
+    runs-on: ubuntu-latestname: Build DeepSeek Floating Monitor APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-      - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.7'
-      - name: Show files
-        run: find . -name "*.gradle*" -not -path "./.git/*" | head -20
-      - name: Build debug APK
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Prepare Complete Android Project (Auto-Unzip or Auto-Generate)
+        shell: bash
         run: |
-          S=$(find . \( -name settings.gradle -o -name settings.gradle.kts \) | head -1)
-          echo "Project: $S"
-          cd "$(dirname "$S")"
-          if [ -f ./gradlew ]; then chmod +x gradlew; ./gradlew assembleDebug; else gradle assembleDebug; fi
-      - uses: actions/upload-artifact@v4
+          set -e
+          if [ -f "deepseek_android_floating_app.zip" ]; then
+            unzip -o deepseek_android_floating_app.zip
+          fi
+
+          mkdir -p android-kotlin-app/app/src/main/java/com/deepseek/floatmonitor
+
+          cat << 'EOF' > android-kotlin-app/settings.gradle
+          pluginManagement {
+              repositories {
+                  google()
+                  mavenCentral()
+                  gradlePluginPortal()
+              }
+          }
+          dependencyResolutionManagement {
+              repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          rootProject.name = "DeepSeekFloatMonitor"
+          include(":app")
+          EOF
+
+          cat << 'EOF' > android-kotlin-app/build.gradle
+          plugins {
+              id("com.android.application") version "8.2.2" apply false
+              id("org.jetbrains.kotlin.android") version "1.9.22" apply false
+          }
+          EOF
+
+          cat << 'EOF' > android-kotlin-app/gradle.properties
+          org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+          android.useAndroidX=true
+          kotlin.code.style=official
+          android.nonTransitiveRClass=true
+          EOF
+
+          cat << 'EOF' > android-kotlin-app/app/build.gradle
+          plugins {
+              id("com.android.application")
+              id("org.jetbrains.kotlin.android")
+          }
+
+          android {
+              namespace = "com.deepseek.floatmonitor"
+              compileSdk = 34
+
+              defaultConfig {
+                  applicationId = "com.deepseek.floatmonitor"
+                  minSdk = 24
+                  targetSdk = 33
+                  versionCode = 2
+                  versionName = "2.0"
+              }
+
+              buildTypes {
+                  release {
+                      isMinifyEnabled = false
+                  }
+              }
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
+              }
+              kotlinOptions {
+                  jvmTarget = "17"
+              }
+          }
+
+          dependencies {
+          }
+          EOF
+
+          cat << 'EOF' > android-kotlin-app/app/src/main/AndroidManifest.xml
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+              <uses-permission android:name="android.permission.INTERNET" />
+              <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+              <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+              <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+              <application
+                  android:allowBackup="true"
+                  android:label="DeepSeek悬浮监控"
+                  android:supportsRtl="true"
+                  android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+
+                  <activity
+                      android:name=".MainActivity"
+                      android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN" />
+                          <category android:name="android.intent.category.LAUNCHER" />
+                      </intent-filter>
+                  </activity>
+
+                  <service
+                      android:name=".FloatingMonitorService"
+                      android:enabled="true"
+                      android:exported="false" />
+              </application>
+          </manifest>
+          EOF
+
+          cat << 'EOF' > android-kotlin-app/app/src/main/java/com/deepseek/floatmonitor/MainActivity.kt
+          package com.deepseek.floatmonitor
+
+          import android.app.Activity
+          import android.content.Context
+          import android.content.Intent
+          import android.graphics.Color
+          import android.graphics.drawable.GradientDrawable
+          import android.net.Uri
+          import android.os.Build
+          import android.os.Bundle
+          import android.provider.Settings
+          import android.text.InputType
+          import android.widget.Button
+          import android.widget.EditText
+          import android.widget.LinearLayout
+          import android.widget.ScrollView
+          import android.widget.Switch
+          import android.widget.TextView
+          import android.widget.Toast
+
+          class MainActivity : Activity() {
+
+              override fun onCreate(savedInstanceState: Bundle?) {
+                  super.onCreate(savedInstanceState)
+                  val prefs = getSharedPreferences("deepseek_cfg", Context.MODE_PRIVATE)
+
+                  val root = ScrollView(this).apply {
+                      setBackgroundColor(Color.parseColor("#0F172A"))
+                  }
+                  val container = LinearLayout(this).apply {
+                      orientation = LinearLayout.VERTICAL
+                      setPadding(48, 64, 48, 64)
+                  }
+
+                  val title = TextView(this).apply {
+                      text = "DeepSeek 余额 & 峰谷悬浮窗"
+                      textSize = 20f
+                      setTextColor(Color.WHITE)
+                  }
+                  val subtitle = TextView(this).apply {
+                      text = "最新官方规则：工作日 09:00-12:00、14:00-18:00 红色高峰；其余时段绿色 5 折半价"
+                      textSize = 12f
+                      setTextColor(Color.parseColor("#94A3B8"))
+                      setPadding(0, 8, 0, 36)
+                  }
+
+                  val inputKey = EditText(this).apply {
+                      hint = "填入 DeepSeek API Key (sk-...)"
+                      setText(prefs.getString("api_key", ""))
+                      setTextColor(Color.WHITE)
+                      setHintTextColor(Color.parseColor("#64748B"))
+                  }
+
+                  val inputThreshold = EditText(this).apply {
+                      hint = "低余额预警阈值 (默认 20 元)"
+                      inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+                      setText(prefs.getFloat("low_threshold", 20f).toString())
+                      setTextColor(Color.WHITE)
+                  }
+
+                  val inputInterval = EditText(this).apply {
+                      hint = "刷新间隔秒数 (默认 60 秒)"
+                      inputType = InputType.TYPE_CLASS_NUMBER
+                      setText(prefs.getInt("refresh_sec", 60).toString())
+                      setTextColor(Color.WHITE)
+                  }
+
+                  val swPin = Switch(this).apply {
+                      text = "📌 固定悬浮窗位置（默认开启点击穿透，仅保留解锁可点）"
+                      isChecked = prefs.getBoolean("is_pinned", false)
+                      setTextColor(Color.parseColor("#E2E8F0"))
+                      setPadding(0, 24, 0, 24)
+                  }
+
+                  val btnStart = Button(this).apply {
+                      text = "🚀 启动 / 更新安卓系统悬浮窗"
+                      setTextColor(Color.WHITE)
+                      background = GradientDrawable().apply {
+                          setColor(Color.parseColor("#4F46E5"))
+                          cornerRadius = 24f
+                      }
+                  }
+
+                  val btnStop = Button(this).apply {
+                      text = "关闭悬浮窗服务"
+                      setTextColor(Color.parseColor("#CBD5E1"))
+                      background = GradientDrawable().apply {
+                          setColor(Color.parseColor("#1E293B"))
+                          cornerRadius = 24f
+                      }
+                  }
+
+                  btnStart.setOnClickListener {
+                      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+                          Toast.makeText(this, "请先授予悬浮窗权限", Toast.LENGTH_LONG).show()
+                          startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")))
+                          return@setOnClickListener
+                      }
+                      val key = inputKey.text.toString().trim()
+                      val threshold = inputThreshold.text.toString().toDoubleOrNull() ?: 20.0
+                      val interval = (inputInterval.text.toString().toIntOrNull() ?: 60).coerceAtLeast(15)
+                      val pinned = swPin.isChecked
+
+                      prefs.edit()
+                          .putString("api_key", key)
+                          .putFloat("low_threshold", threshold.toFloat())
+                          .putInt("refresh_sec", interval)
+                          .putBoolean("is_pinned", pinned)
+                          .apply()
+
+                      val svcIntent = Intent(this, FloatingMonitorService::class.java).apply {
+                          putExtra("API_KEY", key)
+                          putExtra("LOW_THRESHOLD", threshold)
+                          putExtra("REFRESH_SEC", interval)
+                          putExtra("IS_PINNED", pinned)
+                      }
+                      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                          startForegroundService(svcIntent)
+                      } else {
+                          startService(svcIntent)
+                      }
+                      Toast.makeText(this, "悬浮窗已启动", Toast.LENGTH_SHORT).show()
+                  }
+
+                  btnStop.setOnClickListener {
+                      stopService(Intent(this, FloatingMonitorService::class.java))
+                      Toast.makeText(this, "悬浮窗已关闭", Toast.LENGTH_SHORT).show()
+                  }
+
+                  container.addView(title)
+                  container.addView(subtitle)
+                  container.addView(inputKey)
+                  container.addView(inputThreshold)
+                  container.addView(inputInterval)
+                  container.addView(swPin)
+                  container.addView(btnStart, LinearLayout.LayoutParams(
+                      LinearLayout.LayoutParams.MATCH_PARENT, 120
+                  ).apply { bottomMargin = 24 })
+                  container.addView(btnStop, LinearLayout.LayoutParams(
+                      LinearLayout.LayoutParams.MATCH_PARENT, 110
+                  ))
+
+                  root.addView(container)
+                  setContentView(root)
+              }
+          }
+          EOF
+
+          cat << 'EOF' > android-kotlin-app/app/src/main/java/com/deepseek/floatmonitor/FloatingMonitorService.kt
+          package com.deepseek.floatmonitor
+
+          import android.app.Notification
+          import android.app.NotificationChannel
+          import android.app.NotificationManager
+          import android.app.Service
+          import android.content.Context
+          import android.content.Intent
+          import android.graphics.Color
+          import android.graphics.PixelFormat
+          import android.graphics.drawable.GradientDrawable
+          import android.os.Build
+          import android.os.Handler
+          import android.os.IBinder
+          import android.os.Looper
+          import android.view.Gravity
+          import android.view.MotionEvent
+          import android.view.View
+          import android.view.WindowManager
+          import android.widget.LinearLayout
+          import android.widget.TextView
+          import android.widget.Toast
+          import org.json.JSONObject
+          import java.net.HttpURLConnection
+          import java.net.URL
+          import java.util.Calendar
+          import java.util.TimeZone
+          import kotlin.concurrent.thread
+
+          class FloatingMonitorService : Service() {
+
+              private lateinit var windowManager: WindowManager
+              private lateinit var cardLayout: LinearLayout
+              private lateinit var unlockPill: TextView
+              private lateinit var cardParams: WindowManager.LayoutParams
+              private lateinit var unlockParams: WindowManager.LayoutParams
+
+              private lateinit var txtBadge: TextView
+              private lateinit var txtBalance: TextView
+              private lateinit var txtSubBalance: TextView
+              private lateinit var txtCountdown: TextView
+
+              private val handler = Handler(Looper.getMainLooper())
+              private var apiKey: String = ""
+              private var lowThreshold: Double = 20.0
+              private var refreshIntervalSec: Long = 60L
+              private var isPinned: Boolean = false
+
+              private val tickRunnable = object : Runnable {
+                  override fun run() {
+                      updatePeakValleyClock()
+                      handler.postDelayed(this, 1000L)
+                  }
+              }
+
+              private val balanceRunnable = object : Runnable {
+                  override fun run() {
+                      fetchBalanceAsync()
+                      handler.postDelayed(this, refreshIntervalSec * 1000L)
+                  }
+              }
+
+              override fun onCreate() {
+                  super.onCreate()
+                  startForeground(1001, createForegroundNotification("DeepSeek 峰谷与余额悬浮窗运行中"))
+                  initFloatingWindows()
+              }
+
+              override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+                  apiKey = intent?.getStringExtra("API_KEY")?.trim() ?: ""
+                  lowThreshold = intent?.getDoubleExtra("LOW_THRESHOLD", 20.0) ?: 20.0
+                  refreshIntervalSec = (intent?.getIntExtra("REFRESH_SEC", 60) ?: 60).toLong().coerceAtLeast(15L)
+                  isPinned = intent?.getBooleanExtra("IS_PINNED", false) ?: false
+
+                  applyPinAndPassthroughState()
+                  handler.removeCallbacks(tickRunnable)
+                  handler.removeCallbacks(balanceRunnable)
+                  handler.post(tickRunnable)
+                  handler.post(balanceRunnable)
+                  return START_STICKY
+              }
+
+              private fun overlayType(): Int {
+                  return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                      WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+                  } else {
+                      @Suppress("DEPRECATION")
+                      WindowManager.LayoutParams.TYPE_PHONE
+                  }
+              }
+
+              private fun initFloatingWindows() {
+                  windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+                  val bgDrawable = GradientDrawable().apply {
+                      setColor(Color.parseColor("#EE0F172A"))
+                      cornerRadius = 36f
+                      setStroke(2, Color.parseColor("#334155"))
+                  }
+
+                  cardLayout = LinearLayout(this).apply {
+                      orientation = LinearLayout.VERTICAL
+                      background = bgDrawable
+                      setPadding(32, 24, 32, 24)
+                  }
+
+                  txtBadge = TextView(this).apply {
+                      text = "🟢 空闲时段 · 5折半价"
+                      textSize = 11f
+                      setTextColor(Color.parseColor("#34D399"))
+                  }
+                  txtBalance = TextView(this).apply {
+                      text = "¥ --.--"
+                      textSize = 18f
+                      setTextColor(Color.WHITE)
+                  }
+                  txtSubBalance = TextView(this).apply {
+                      text = "充: -- | 赠: --"
+                      textSize = 10f
+                      setTextColor(Color.parseColor("#94A3B8"))
+                  }
+                  txtCountdown = TextView(this).apply {
+                      text = "距切换: --:--:--"
+                      textSize = 11f
+                      setTextColor(Color.parseColor("#38BDF8"))
+                  }
+
+                  cardLayout.addView(txtBadge)
+                  cardLayout.addView(txtBalance)
+                  cardLayout.addView(txtSubBalance)
+                  cardLayout.addView(txtCountdown)
+
+                  cardParams = WindowManager.LayoutParams(
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      overlayType(),
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                      PixelFormat.TRANSLUCENT
+                  ).apply {
+                      gravity = Gravity.TOP or Gravity.START
+                      x = 60
+                      y = 240
+                  }
+
+                  unlockPill = TextView(this).apply {
+                      text = "🔓 固定"
+                      textSize = 10f
+                      setTextColor(Color.WHITE)
+                      setPadding(20, 10, 20, 10)
+                      background = GradientDrawable().apply {
+                          setColor(Color.parseColor("#EE312E81"))
+                          cornerRadius = 999f
+                          setStroke(2, Color.parseColor("#6366F1"))
+                      }
+                      setOnClickListener {
+                          isPinned = !isPinned
+                          applyPinAndPassthroughState()
+                          Toast.makeText(
+                              this@FloatingMonitorService,
+                              if (isPinned) "📌 已固定并开启点击穿透（仅解锁可点）" else "🔓 已解锁悬浮窗拖动",
+                              Toast.LENGTH_SHORT
+                          ).show()
+                      }
+                  }
+
+                  unlockParams = WindowManager.LayoutParams(
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      WindowManager.LayoutParams.WRAP_CONTENT,
+                      overlayType(),
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                      PixelFormat.TRANSLUCENT
+                  ).apply {
+                      gravity = Gravity.TOP or Gravity.START
+                      x = cardParams.x + 220
+                      y = cardParams.y - 18
+                  }
+
+                  cardLayout.setOnTouchListener(object : View.OnTouchListener {
+                      private var initX = 0
+                      private var initY = 0
+                      private var touchX = 0f
+                      private var touchY = 0f
+
+                      override fun onTouch(v: View, event: MotionEvent): Boolean {
+                          if (isPinned) return false
+                          when (event.action) {
+                              MotionEvent.ACTION_DOWN -> {
+                                  initX = cardParams.x
+                                  initY = cardParams.y
+                                  touchX = event.rawX
+                                  touchY = event.rawY
+                                  return true
+                              }
+                              MotionEvent.ACTION_MOVE -> {
+                                  cardParams.x = initX + (event.rawX - touchX).toInt()
+                                  cardParams.y = initY + (event.rawY - touchY).toInt()
+                                  unlockParams.x = cardParams.x + 220
+                                  unlockParams.y = cardParams.y - 18
+                                  windowManager.updateViewLayout(cardLayout, cardParams)
+                                  windowManager.updateViewLayout(unlockPill, unlockParams)
+                                  return true
+                              }
+                          }
+                          return false
+                      }
+                  })
+
+                  windowManager.addView(cardLayout, cardParams)
+                  windowManager.addView(unlockPill, unlockParams)
+              }
+
+              private fun applyPinAndPassthroughState() {
+                  if (!::cardLayout.isInitialized) return
+                  cardParams.flags = if (isPinned) {
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                          WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                          WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                  } else {
+                      WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                          WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                  }
+                  unlockPill.text = if (isPinned) "📌 解锁" else "🔓 固定"
+                  windowManager.updateViewLayout(cardLayout, cardParams)
+                  windowManager.updateViewLayout(unlockPill, unlockParams)
+              }
+
+              private fun updatePeakValleyClock() {
+                  val cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai"))
+                  val dayOfWeek = cal.get(Calendar.DAY_OF_WEEK)
+                  val hours = cal.get(Calendar.HOUR_OF_DAY)
+                  val minutes = cal.get(Calendar.MINUTE)
+                  val seconds = cal.get(Calendar.SECOND)
+                  val totalMins = hours * 60 + minutes
+                  val totalSecs = totalMins * 60 + seconds
+
+                  val isWeekend = (dayOfWeek == Calendar.SUNDAY || dayOfWeek == Calendar.SATURDAY)
+                  val isPeak = !isWeekend && ((totalMins in 540 until 720) || (totalMins in 840 until 1080))
+
+                  val targetSecs = if (!isWeekend) {
+                      when {
+                          totalMins < 540 -> 540 * 60
+                          totalMins < 720 -> 720 * 60
+                          totalMins < 840 -> 840 * 60
+                          totalMins < 1080 -> 1080 * 60
+                          dayOfWeek == Calendar.FRIDAY -> 3 * 86400 + 540 * 60
+                          else -> 86400 + 540 * 60
+                      }
+                  } else {
+                      val daysToMon = if (dayOfWeek == Calendar.SATURDAY) 2 else 1
+                      daysToMon * 86400 + 540 * 60
+                  }
+
+                  val rem = (targetSecs - totalSecs).coerceAtLeast(0)
+                  val hh = rem / 3600
+                  val mm = (rem % 3600) / 60
+                  val ss = rem % 60
+
+                  txtBadge.text = if (isPeak) "🔴 高峰时段 · 标准价" else "🟢 空闲时段 · 5折半价"
+                  txtBadge.setTextColor(Color.parseColor(if (isPeak) "#F87171" else "#34D399"))
+                  txtCountdown.text = String.format("距切换: %02d:%02d:%02d", hh, mm, ss)
+              }
+
+              private fun fetchBalanceAsync() {
+                  if (apiKey.isEmpty()) {
+                      handler.post {
+                          txtBalance.text = "¥ 110.00 (演示)"
+                          txtSubBalance.text = "充: ¥100.00 | 赠: ¥10.00"
+                      }
+                      return
+                  }
+                  thread {
+                      try {
+                          val conn = (URL("https://api.deepseek.com/user/balance").openConnection() as HttpURLConnection).apply {
+                              requestMethod = "GET"
+                              setRequestProperty("Accept", "application/json")
+                              setRequestProperty("Authorization", "Bearer $apiKey")
+                              connectTimeout = 8000
+                              readTimeout = 8000
+                          }
+                          val body = conn.inputStream.bufferedReader().use { it.readText() }
+                          val json = JSONObject(body)
+                          val first = json.optJSONArray("balance_infos")?.optJSONObject(0)
+                          val currency = first?.optString("currency", "CNY") ?: "CNY"
+                          val sym = if (currency == "USD") "$" else "¥"
+                          val total = first?.optString("total_balance", "0.00")?.toDoubleOrNull() ?: 0.0
+                          val topped = first?.optString("topped_up_balance", "0.00")?.toDoubleOrNull() ?: 0.0
+                          val granted = first?.optString("granted_balance", "0.00")?.toDoubleOrNull() ?: 0.0
+
+                          handler.post {
+                              txtBalance.text = String.format("%s %.2f", sym, total)
+                              txtBalance.setTextColor(if (total <= lowThreshold) Color.parseColor("#FB7185") else Color.WHITE)
+                              txtSubBalance.text = String.format("充: %s%.2f | 赠: %s%.2f", sym, topped, sym, granted)
+                          }
+                      } catch (e: Exception) {
+                          handler.post {
+                              txtSubBalance.text = "刷新失败: ${e.message?.take(16)}"
+                          }
+                      }
+                  }
+              }
+
+              private fun createForegroundNotification(content: String): Notification {
+                  val channelId = "deepseek_float_channel"
+                  val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                      nm.createNotificationChannel(NotificationChannel(channelId, "DeepSeek 悬浮窗服务", NotificationManager.IMPORTANCE_LOW))
+                      return Notification.Builder(this, channelId)
+                          .setContentTitle("DeepSeek 实时监控")
+                          .setContentText(content)
+                          .setSmallIcon(android.R.drawable.ic_dialog_info)
+                          .build()
+                  }
+                  @Suppress("DEPRECATION")
+                  return Notification.Builder(this)
+                      .setContentTitle("DeepSeek 实时监控")
+                      .setContentText(content)
+                      .setSmallIcon(android.R.drawable.ic_dialog_info)
+                      .build()
+              }
+
+              override fun onDestroy() {
+                  handler.removeCallbacks(tickRunnable)
+                  handler.removeCallbacks(balanceRunnable)
+                  if (::cardLayout.isInitialized) windowManager.removeView(cardLayout)
+                  if (::unlockPill.isInitialized) windowManager.removeView(unlockPill)
+                  super.onDestroy()
+              }
+
+              override fun onBind(intent: Intent?): IBinder? = null
+          }
+          EOF
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          name: app-debug-apk
-          path: '**/build/outputs/apk/debug/*.apk'
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle 8.5
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.5'
+
+      - name: Build Debug APK
+        working-directory: ./android-kotlin-app
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: Upload Compiled APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: DeepSeek-FloatMonitor-Android-APK
+          path: android-kotlin-app/app/build/outputs/apk/debug/*.apk
